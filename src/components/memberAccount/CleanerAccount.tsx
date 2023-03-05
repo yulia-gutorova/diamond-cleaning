@@ -15,26 +15,6 @@ const CLeanerAccount = () => {
 
     const[bookings, setBookings]= useState<Booking[]>([]);
 
-/*     const fetchData = () => 
-    {
-       try
-       {
-           fetch('http://localhost:5001/bookings')
-           .then(res => res.json())
-           .then((data) => {
-             console.log('Data'); 
-             console.log(data);  
-             setBookings(data); 
-             console.log('Bookings'); 
-             console.log(bookings);   
-           })                
-       }    
-       catch(error)
-       {
-           console.log(error);
-       }   
-    } */
-
     const fetchData = async() => 
     {
        try
