@@ -7,13 +7,14 @@ import LogInFooter from '../logInPage/LogInFooter';
 import PlannedBookings from './PlannedBookings';
 import PerformedBookings from './PerformedBookings';
 import NewBooking from './NewBooking';
+import { FormData } from './NewBooking';
 
 
 
 const CustomerAccount = () => {
 
     const location = useLocation();
-    const data = location.state;
+    const data : string= location.state;
     console.log('data in customer account')
     console.log(data)
 
@@ -33,6 +34,48 @@ const CustomerAccount = () => {
         }
     }
 
+
+    const addData = async (formData : FormData ) => {
+
+        console.log('inside addData in customer account');
+        console.log('FormData in add Data in customer account');
+        console.log(formData);
+             
+        let newBooking= {
+            customerName : data,
+            cleanerName : formData.cleanerName,
+            level : formData.level,
+            date : formData.date,
+            time : formData.time,
+            status: false
+        } 
+
+        console.log('inside await create data in customer account');
+        console.log('New booking');
+        console.log(newBooking);
+
+         try
+        {
+            const res = await fetch('http://localhost:5001/bookings', 
+            {
+                method: 'POST',
+                body: JSON.stringify(newBooking),
+                headers: 
+                {
+                    'Content-Type': 'application/json',
+                }
+            })    
+        }
+        catch(error) 
+        {
+          console.log(error);     
+        } 
+
+        fetchData();
+    }
+
+
+
     const deleteData = async(id: string) => {
         console.log('inside deleteData in customer account');
 
@@ -45,8 +88,9 @@ const CustomerAccount = () => {
         catch (error) {
             console.log(error);
         }
-        //fetchData();
+        fetchData();
     }
+
 
     const deleteAllData = async(checkedBookings : string[]) => {
         console.log('inside deleteAllData in customer account');
@@ -63,11 +107,12 @@ const CustomerAccount = () => {
                 console.log(error);
             }
         }
+        fetchData();
     }
 
     useEffect(() => {
         fetchData();
-    }, [deleteData, deleteAllData]);
+    }, []);
 
 
     const onDeleteTaskHandler = (id : string) => {
@@ -137,8 +182,9 @@ const CustomerAccount = () => {
                 <div className='customer-list-of-bookings'>
 
                     <div className='customer-create-bookings'>
-                        <h2>Cteate a new booking:</h2>
-                        <NewBooking></NewBooking>
+                        <h2>Create a new booking:</h2>
+                        <NewBooking
+                        addData={addData}></NewBooking>
                     </div>
 
                     <div className='customer-planned-bookings'>
