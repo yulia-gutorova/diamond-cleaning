@@ -1,4 +1,4 @@
-class Cleaner
+class Member
 {
 name: string;
 isCustomer: boolean;
@@ -12,4 +12,4 @@ bookings: string[]
 
     }
 }
-export default Cleaner
+export default Member

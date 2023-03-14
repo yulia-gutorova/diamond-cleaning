@@ -7,6 +7,7 @@ import LoginPage from './components/logInPage/LogInPage';
 import NavigationMenu from './components/homePage/NavigationMenu';
 import CustomerAccount from './components/memberAccount/CustomersAccount';
 import CleanerAccount from './components/memberAccount/CleanerAccount';
+import Footer from './components/homePage/Footer';
 
 
 
@@ -26,7 +27,7 @@ function App() {
     <div className="App">
       
       <Router>
-      {/* <NavigationMenu onScrollToElementClickHandler={onScrollToElementClickHandler}></NavigationMenu> */}
+       <NavigationMenu onScrollToElementClickHandler={onScrollToElementClickHandler}></NavigationMenu> 
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/login' element={<LoginPage/>} />
@@ -34,6 +35,7 @@ function App() {
           <Route path='/login/cleaner' element={<CleanerAccount/>} />
           <Route path='*' element={<h1>PAGE NOT FOUND</h1>} />
         </Routes>
+        <Footer onScrollToElementClickHandler={onScrollToElementClickHandler}></Footer>
       </Router>
 
     </div>

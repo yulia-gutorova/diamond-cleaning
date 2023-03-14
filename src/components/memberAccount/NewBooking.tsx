@@ -29,6 +29,12 @@ const NewBooking = (props: INewBooking) => {
         console.log('formdata in submitHandler')
         console.log(formData);
         props.addData(formData); 
+        setFormData({
+            cleanerName : '',
+            level : '',
+            date : '',
+            time : ''
+            })
     }
 
     const changeHandler = (event : React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {         console.log('in changeHandler');
@@ -56,7 +62,7 @@ const NewBooking = (props: INewBooking) => {
                                     name="cleanerName"
                                     value={formData.cleanerName}
                                     onChange={changeHandler}>
-
+                                <option value="" disabled></option>
                                 <option value="Cleaner-1">Cleaner-1</option>
                                 <option value="Cleaner-2">Cleaner-2</option>
                                 <option value="Cleaner-3">Cleaner-3</option>

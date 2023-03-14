@@ -83,12 +83,10 @@ const LogInPage = () => {
     
   return (
       <>
-          <LogInMenu></LogInMenu>
           <LogInForm  onSubmitHandler={onSubmitHandler}
                       text={text}
                       display={display}
-                      isCustomer={isCustomer} ></LogInForm>
-          <LogInFooter></LogInFooter>             
+                      isCustomer={isCustomer} ></LogInForm>       
       </> 
   )
 }

@@ -1,75 +1,148 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Booking from '../../models/Booking';
-import LogInFooter from '../logInPage/LogInFooter';
+
 import LogInMenu from '../logInPage/LogInMenu';
 import './CleanerAccount.css'
-import OneCleaning from './OneCleaning';
+import PerformedCleanings from './PerfopmedCleanings';
+import PlannedCleanings from './PlannedCleanings';
 
 
 const CLeanerAccount = () => {
     const location = useLocation();
-    const data =location.state;
+    const data = location.state;
     console.log('data in customer account')
     console.log(data)
 
-    const[bookings, setBookings]= useState<Booking[]>([]);
+    const [bookings, setBookings] = useState<Booking[]>([]);
 
-    const fetchData = async() => 
-    {
-       try
-       {
-           const resp = await fetch('http://localhost:5001/bookings')
-           const data = await resp.json();     
-           setBookings(data); 
-           console.log('Bookings'); 
-           console.log(bookings);                  
-       }    
-       catch(error)
-       {
-           console.log(error);
-       }   
+    const fetchData = async () => {
+        try {
+            const resp = await fetch('http://localhost:5001/bookings')
+            const data = await resp.json();
+            setBookings(data);
+            console.log('Bookings');
+            console.log(bookings);
+        }
+        catch (error) {
+            console.log(error);
+        }
     }
-    
+
     useEffect(() => {
         fetchData();
-    }, []); 
+    }, []);
 
-    console.log('Bookings1'); 
-    console.log(bookings); 
+    console.log('Bookings1');
+    console.log(bookings);
 
-    const bookingsList = bookings.filter(booking => booking.cleanerName === data).map((booking) => (
-        <OneCleaning
-        key={booking._id}
-        customerName={booking.customerName}
-        cleanerName={booking.cleanerName}
-        level={booking.level}
-        time={booking.time}
-        date={booking.date.toString()}></OneCleaning>
-) )
+    const onPerformedTaskHandler = (id: string) => {
+        console.log('inside onPerformedTaskHandler in cleaner account');
+        console.log('Id:');
+        console.log(id);
+        //deleteAllData(checkedBookings);
+        setBookings(bookings.map(booking => (booking._id === id ? { ...booking, status: true } : booking)));
+        console.log('Bookings done:');
+        console.log(bookings);
 
-    return(<>
-    <LogInMenu></LogInMenu>
-    <div className="cleaner-account-wrapper">
-        <div className="cleaner-account-content">
-        <div className="cleaner-background-image"></div>
-         <div className='cleaner-account-title'>
-                <h1>Hello, {data}!!!</h1>
-                <h2>Your cleanings:</h2>
-         </div>   
-         <div className='cleaner-list-of-bookings'> 
-                {bookingsList.length === 0 && <h2>You don't have any planned cleanings!</h2>}  
+        const updateData = async (id: string) => {
+
+            console.log('inside updateData in cleaner account');
+            console.log('Id');
+            console.log(id);
+                 
+            let newBooking= {
+                status: true
+            } 
+    
+            console.log('inside await update data in cleaner account');
+            console.log('New booking');
+            console.log(newBooking);
+    
+             try
+            {
+                const res = await fetch('http://localhost:5001/bookings' + '/' + id, 
+                {
+                    method: 'PATCH',
+                    body: JSON.stringify(newBooking),
+                    headers: 
+                    {
+                        'Content-Type': 'application/json',
+                    }
+                })    
+            }
+            catch(error) 
+            {
+              console.log(error);     
+            } 
+            fetchData();
+        }
+
+        updateData(id);
+        
+    }
+
+    const plannedCleanings = bookings.filter(booking => (booking.cleanerName === data && booking.status === false)).map((booking) => (
+        <PlannedCleanings
+            key={booking._id}
+            id={booking._id}
+            customerName={booking.customerName}
+            cleanerName={booking.cleanerName}
+            level={booking.level}
+            time={booking.time}
+            date={booking.date.toString()}
+            onPerformedTaskHandler={() => onPerformedTaskHandler(booking._id)}></PlannedCleanings>
+    ))
+
+    const performedCleanings = bookings.filter(booking => (booking.cleanerName === data && booking.status === true)).map((booking) => (
+        <PerformedCleanings
+            key={booking._id}
+            id={booking._id}
+            customerName={booking.customerName}
+            cleanerName={booking.cleanerName}
+            level={booking.level}
+            time={booking.time}
+            date={booking.date.toString()}
+        ></PerformedCleanings>
+    ))
+
+    console.log('Planned cleanings:');
+    console.log(plannedCleanings);
+    console.log('Performed cleanings:');
+    console.log(performedCleanings);
+
+    return (<>
+        <div className="cleaner-account-wrapper">
+            <div className="cleaner-account-content">
+                <div className="cleaner-background-image"></div>
+                <div className='cleaner-account-title'>
+                    <h1>Hello, {data}!!!</h1>
+                    <h2>Your cleanings:</h2>
+                </div>
+
+                <div className='cleaner-planned-cleanings'>
+                    <h2>Planned cleanings:</h2>
+                    {plannedCleanings.length === 0 && <h3>You don't have any planned cleanings</h3>}
+                    <table className='cleaner-table'>
+                        <tbody>
+                            {plannedCleanings}
+                        </tbody>
+                    </table>
+                </div>
+            
+
+            <div className='cleaner-performed-cleanings'>
+                <h2>Performed cleanings:</h2>
+                {performedCleanings.length === 0 && <h3>You don't have any performed cleanings</h3>}
                 <table className='cleaner-table'>
                     <tbody>
-                    {bookingsList}
+                        {performedCleanings}
                     </tbody>
-                </table>      
+                </table>
+            </div>
             </div>
         </div>
-        
-     </div>
-     <LogInFooter></LogInFooter>   
-    </>)
+        </>)
 }
 
-export default CLeanerAccount
+        export default CLeanerAccount

@@ -1,7 +1,7 @@
 import './CustomerAccount.css'
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from 'react';
-import Booking, { Level } from '../../models/Booking';
+import Booking from '../../models/Booking';
 import LogInMenu from '../logInPage/LogInMenu';
 import LogInFooter from '../logInPage/LogInFooter';
 import PlannedBookings from './PlannedBookings';
@@ -139,7 +139,7 @@ const CustomerAccount = () => {
     }
 
 
-    const plannedCleanings = bookings.filter(booking => (booking.customerName === data && booking.status === false)).map((booking) => (
+    const plannedBookings = bookings.filter(booking => (booking.customerName === data && booking.status === false)).map((booking) => (
         <PlannedBookings
             key={booking._id}
             id={booking._id}
@@ -152,7 +152,7 @@ const CustomerAccount = () => {
     ))
 
     
-    const performedCleanings = bookings.filter(booking => (booking.customerName === data && booking.status === true)).map((booking) => (
+    const performedBookings = bookings.filter(booking => (booking.customerName === data && booking.status === true)).map((booking) => (
         <PerformedBookings
             key={booking._id}
             id={booking._id}
@@ -170,7 +170,7 @@ const CustomerAccount = () => {
     console.log(checkedBookings);
 
     return (<>
-        <LogInMenu></LogInMenu>
+
         <div className="customer-account-wrapper">
             <div className="customer-account-content">
                 <div className='customer-background-image'></div>
@@ -188,24 +188,24 @@ const CustomerAccount = () => {
                     </div>
 
                     <div className='customer-planned-bookings'>
-                         <h2>Planned cleanings:</h2>
-                        {plannedCleanings.length === 0 && <h3>You don't have any planned cleanings</h3>}
+                         <h2>Planned bookings:</h2>
+                        {plannedBookings.length === 0 && <h3>You don't have any planned bookings</h3>}
                         <table className='customer-table'>
                             <tbody>
-                                {plannedCleanings}
+                                {plannedBookings}
                             </tbody>
                         </table>
                     </div>
 
                     <div className='customer-performed-bookings'>
-                        <h2>Performed cleanings:</h2>
-                        {performedCleanings.length === 0 && <h3>You don't have any performed cleanings</h3>}
+                        <h2>Performed bookings:</h2>
+                        {performedBookings.length === 0 && <h3>You don't have any performed bookings</h3>}
                         <table className='customer-table'>
                             <tbody>
-                                {performedCleanings}
+                                {performedBookings}
                             </tbody>
                         </table>
-                        {performedCleanings.length !== 0 &&<button 
+                        {performedBookings.length !== 0 &&<button 
                         className="customer-perform-bookings-button"
                         onClick={onDeleteCheckedBookings}><i>Delete All Selected cleanings</i></button>}
                     </div>
