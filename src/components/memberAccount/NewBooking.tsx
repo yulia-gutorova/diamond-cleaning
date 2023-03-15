@@ -9,7 +9,7 @@ export interface FormData {
 }
 
 interface INewBooking{
-    addData: (formData : FormData) => void
+    onAddNewBooking: (formData : FormData) => void
 }
 
 const NewBooking = (props: INewBooking) => {
@@ -20,25 +20,33 @@ const NewBooking = (props: INewBooking) => {
     date : '',
     time : ''
     })
+    const [isChecked, setIsChecked] = useState('');
  
     //const [customerName, setCustomerName] = useState('');
 
     const submitHandler = (event: React.FormEvent) => {
        event.preventDefault();
+        
         console.log('in submitHandler');
         console.log('formdata in submitHandler')
         console.log(formData);
-        props.addData(formData); 
+        props.onAddNewBooking(formData); 
         setFormData({
             cleanerName : '',
             level : '',
             date : '',
             time : ''
             })
+        setIsChecked('');    
     }
 
-    const changeHandler = (event : React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {         console.log('in changeHandler');
+    const changeHandler = (event : React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => { 
+               
+        console.log('in changeHandler');
         const {name} = event.target;
+
+        if (name === 'level')setIsChecked(event.target.value); 
+
         console.log('name');
         console.log(name)
         setFormData({...formData, [name]: event.target.value});
@@ -77,16 +85,36 @@ const NewBooking = (props: INewBooking) => {
 
                         <div className='input-tab-radio' >
                             {/* <select name="" id="" value={formData.level}> */}
-                                <input type="radio" id="basic" name="level" value="Basic" onChange={changeHandler}/>
+                                <input  type="radio" 
+                                        id="basic" 
+                                        name="level" 
+                                        value="Basic" 
+                                        checked={isChecked === 'Basic'}
+                                        onChange={changeHandler}/>
                                 <label className='label-radio' htmlFor="basic">Basic</label>
 
-                                <input type="radio" id="top" name="level" value="Top" onChange={changeHandler}/>
+                                <input  type="radio" 
+                                        id="top" 
+                                        name="level" 
+                                        value="Top" 
+                                        checked={isChecked === 'Top'}
+                                        onChange={changeHandler}/>
                                 <label className='label-radio' htmlFor="top">Top</label>
 
-                                <input type="radio" id="diamond" name="level" value="Diamond" onChange={changeHandler}/>
+                                <input type="radio" 
+                                        id="diamond" 
+                                        name="level" 
+                                        value="Diamond" 
+                                        checked={isChecked === 'Diamond'}
+                                        onChange={changeHandler}/>
                                 <label className='label-radio' htmlFor="diamond">Diamond</label>
 
-                                <input type="radio" id="windows" name="level" value="Windows" onChange={changeHandler}/>
+                                <input  type="radio" 
+                                        id="windows" 
+                                        name="level" 
+                                        value="Windows" 
+                                        checked={isChecked === 'Windows'}
+                                        onChange={changeHandler}/>
                                 <label className='label-radio' htmlFor="windows">Windows</label>
                             {/* </select> */}
 

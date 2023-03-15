@@ -20,7 +20,7 @@ const CustomerAccount = () => {
 
     const [bookings, setBookings] = useState<Booking[]>([]);
     const [checkedBookings, setCheckedBookings] = useState<string[]>([]);
-
+    const [dubble, setDubble] = useState(false);
     const fetchData = async() => {
         try {
             const resp = await fetch('http://localhost:5001/bookings')
@@ -138,6 +138,25 @@ const CustomerAccount = () => {
         deleteAllData(checkedBookings);
     }
 
+    const onAddNewBooking = (formData : FormData) => {
+        console.log('inside onAddNewBooking in customer account');
+        console.log('New booking in onAddNewBooking');
+        console.log('formData');
+        const dubbleBookings = bookings.filter(booking => (booking.customerName === data && 
+                                                           booking.cleanerName === formData.cleanerName &&
+                                                           booking.date.toString().slice(0, 10) === formData.date &&
+                                                           booking.time === formData.time &&
+                                                           booking.level === formData.level &&
+                                                           booking.status === false
+                                                           ));
+        let dubbel = dubbleBookings.length === 0;                                                 
+        if (dubbel){addData(formData); setDubble(false)} 
+        else{console.log('Dubble bookings'); setDubble(true)}                                                  
+        //addData(formData);
+    }
+
+
+
 
     const plannedBookings = bookings.filter(booking => (booking.customerName === data && booking.status === false)).map((booking) => (
         <PlannedBookings
@@ -183,8 +202,9 @@ const CustomerAccount = () => {
 
                     <div className='customer-create-bookings'>
                         <h2>Create a new booking:</h2>
+                        {dubble && <h3>You already have the same booking</h3>}
                         <NewBooking
-                        addData={addData}></NewBooking>
+                        onAddNewBooking={onAddNewBooking}></NewBooking>
                     </div>
 
                     <div className='customer-planned-bookings'>
@@ -207,7 +227,7 @@ const CustomerAccount = () => {
                         </table>
                         {performedBookings.length !== 0 &&<button 
                         className="customer-perform-bookings-button"
-                        onClick={onDeleteCheckedBookings}><i>Delete All Selected cleanings</i></button>}
+                        onClick={onDeleteCheckedBookings}><i>Delete All Selected Bookings</i></button>}
                     </div>
 
                 </div>
