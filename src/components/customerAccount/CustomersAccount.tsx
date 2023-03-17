@@ -8,12 +8,14 @@ import Booking           from 'src/models/Booking';
 import PlannedBookings   from 'src/components/customerAccount/components/PlannedBookings';
 import PerformedBookings from 'src/components/customerAccount/components/PerformedBookings';
 import NewBooking        from 'src/components/customerAccount/components/NewBooking';
+import { addData, deleteAllData, deleteData, fetchData } from './api';
 
 
 const CustomerAccount = () => {
 
     let {name} = useParams();
-    let data = name;
+    let data = name!;
+
 /*     console.log('data in customer account')
     console.log(name); */
 
@@ -24,25 +26,23 @@ const CustomerAccount = () => {
     const [update, setUpdate] = useState('initial');
 
     //-----------------------------------------------------------------------
-    const fetchData = async() => {
+/*     const fetchData = async() => {
         try {
             const resp = await fetch('http://localhost:5001/bookings')
             const data = await resp.json();     
             setBookings(data); 
-/*             console.log('Bookings'); 
-            console.log(bookings);   */
         }
         catch (error) {
             console.log(error);
         }
-    }
+    } */
 
     //-----------------------------------------------------------------------
-    const addData = async (formData : FormData ) => {
+    /* const addData = async (formData : FormData ) => {
 
-/*         console.log('inside addData in customer account');
+        console.log('inside addData in customer account');
         console.log('FormData in add Data in customer account');
-        console.log(formData); */
+        console.log(formData); 
              
         let newBooking= {
             customerName : data,
@@ -53,9 +53,9 @@ const CustomerAccount = () => {
             status: false
         } 
 
-/*         console.log('inside await create data in customer account');
+         console.log('inside await create data in customer account');
         console.log('New booking');
-        console.log(newBooking); */
+        console.log(newBooking); 
 
          try
         {
@@ -75,12 +75,12 @@ const CustomerAccount = () => {
         } 
 
         //fetchData();
-        setUpdate('addData')
-    }
+        //setUpdate('addData')
+    } */
 
 
     //-----------------------------------------------------------------------
-    const deleteData = async(id: string) => {
+/*     const deleteData = async(id: string) => {
         console.log('inside deleteData in customer account');
 
         try {
@@ -93,11 +93,11 @@ const CustomerAccount = () => {
             console.log(error);
         }
         //fetchData();
-        setUpdate('deleteData')
-    }
+        
+    } */
 
     //-----------------------------------------------------------------------
-    const deleteAllData = async(checkedBookings : string[]) => {
+    /* const deleteAllData = async(checkedBookings : string[]) => {
         console.log('inside deleteAllData in customer account');
 
         for(let id of checkedBookings){
@@ -113,20 +113,28 @@ const CustomerAccount = () => {
             }
         }
         //fetchData();
-        setUpdate('deleteAllData')
-    }
+        //setUpdate('deleteAllData')
+    } */
 
+    //-------------------------------------------------------------------
     useEffect(() => {
-        fetchData();
-        console.log('useEffect'); 
+    (
+      async function() 
+      {
+      let res : Booking[] = await fetchData() as Booking[];
+      setBookings(res);
+      } 
+    )() 
         setUpdate('initial');
     }, [update]);
 
+
     //-----------------------------------------------------------------------
     const onDeleteTaskHandler = (id : string) => {
-        console.log('inside onDeleteTaskHandler in customer account');
-        console.log(id);
+/*         console.log('inside onDeleteTaskHandler in customer account');
+        console.log(id); */
         deleteData(id);
+        setUpdate('deleteData')
     }
 
     //-----------------------------------------------------------------------
@@ -142,17 +150,18 @@ const CustomerAccount = () => {
 
     //-----------------------------------------------------------------------
     const onDeleteCheckedBookings = () => {
-        console.log('inside onDeleteCheckedBookings in customer account');
+/*         console.log('inside onDeleteCheckedBookings in customer account');
         console.log('checkedBookings in onDeleteCheckedBookings');
-        console.log(checkedBookings);
+        console.log(checkedBookings); */
         deleteAllData(checkedBookings);
+        setUpdate('deleteAllData')
     }
 
     //-----------------------------------------------------------------------
-    const onAddNewBooking = (formData : FormData) => {
-        console.log('inside onAddNewBooking in customer account');
+    const onAddNewBooking = (formData : any) => {
+/*         console.log('inside onAddNewBooking in customer account');
         console.log('New booking in onAddNewBooking');
-        console.log('formData');
+        console.log('formData'); */
         const dubbleBookings = bookings.filter(booking => (booking.customerName === data && 
                                                            booking.cleanerName === formData.cleanerName &&
                                                            booking.date.toString().slice(0, 10) === formData.date &&
@@ -163,14 +172,15 @@ const CustomerAccount = () => {
         let dubbel = dubbleBookings.length === 0;                                                 
         if (dubbel)
         {
-            addData(formData); 
+            addData(data , formData); 
             setDubble(false)
         } 
         else
         {
             console.log('Dubble bookings'); 
             setDubble(true)
-        }                                                  
+        } 
+        setUpdate('addData');                                                 
     }
 
     //-----------------------------------------------------------------------

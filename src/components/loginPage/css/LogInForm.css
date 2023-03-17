@@ -13,13 +13,12 @@
     height: 800px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('src/images/login-soffa.jpeg');
-    filter: blur(0px); 
+    background-image: url('src/images/login-page.jpg');
+    filter: blur(2px); 
 }
 
 .login-form {
-    background-color: rgba(220, 219, 219, 0.008); 
-    /* border: 3px solid rgb(169, 218, 96); */
+    background-color: rgb(150, 151, 149); 
     border: none;
     position: absolute;
     top: 32%;
@@ -27,7 +26,6 @@
     transform: translate(-50%, -50%); 
     z-index: 2;
     width: 520px;
-    /* padding: 20px;  */
     text-align: center;
 }
 

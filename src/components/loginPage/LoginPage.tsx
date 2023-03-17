@@ -1,17 +1,12 @@
 import { useEffect, useState } from 'react'
-import Member from 'src/models/Member';
 
+import Member from 'src/models/Member';
 
 import LogInForm from 'src/components/logInPage/components/LogInForm'
 
+import { ILogInPage } from './interfaces';
+import { fetchData } from './api';
 
-//import 'src/components/logInPage/css/LogInPage.css'
-
-
-export interface ILogInPage {
-  loginButtonTextHandler: (login : boolean) => void
-
-} 
 
 const LogInPage = (props: ILogInPage) => {
 
@@ -23,7 +18,7 @@ const LogInPage = (props: ILogInPage) => {
   const [login, setLogin] = useState(false);
      
   //-------------------------------------------------------------------
-  const fetchData =  () => {
+/*   const fetchData =  () => {
     try
     {
         fetch('http://localhost:5001/members')
@@ -38,11 +33,17 @@ const LogInPage = (props: ILogInPage) => {
     {
         console.log(error);
     }   
-  }
+  } */
    
   //-------------------------------------------------------------------
   useEffect(() => {
-    fetchData();
+    (
+      async function() 
+      {
+      let res : Member[] = await fetchData() as Member[];
+      setMembers(res);
+      } 
+    )() 
   }, []); 
 
 /*   console.log('booking1');
@@ -85,12 +86,10 @@ const LogInPage = (props: ILogInPage) => {
   } */
 
   //-------------------------------------------------------------------
-  const onSubmitHandler = (name :string) => {
-    
+  const onSubmitHandler = (name :string) => {  
     const filtered = members.filter((value) => value.name === name);
 /*     console.log('Filtered')
     console.log(filtered);  */
-
     if (filtered.length !== 0)
     {
       //console.log('inside filtered.length !== 0'); 
@@ -99,14 +98,12 @@ const LogInPage = (props: ILogInPage) => {
       setIsCustomer(filtered[0].isCustomer);  
       setLogin(true);    
     };
-
     if (filtered.length === 0)
     {
       setText('Not exists');
       setDisplay(true);
       setLogin(false);
     };
-
   }
 
   //-------------------------------------------------------------------

@@ -4,15 +4,18 @@ import { IPerformedBookings } from 'src/components/customerAccount/interfaces';
 
 const PerformedBookings = (props: IPerformedBookings) => {
 
+    //-----------------------------------------------------------------------
     const onDeleteHandler = (event : React.MouseEvent) => {
         props.onDeleteTaskHandler(props.id);
     }
 
+    //-----------------------------------------------------------------------
     const onCheckboxHandler = (event : React.ChangeEvent<HTMLInputElement>) => {
         console.log('Insise on checkbox handler in performed bookings');
         props.onCheckboxHandler(props.id)
     }
 
+    //-----------------------------------------------------------------------
     return(
         <>
         <tr>
@@ -36,6 +39,5 @@ const PerformedBookings = (props: IPerformedBookings) => {
     )
 }
 
-// checked={copmlete}
 
 export default PerformedBookings

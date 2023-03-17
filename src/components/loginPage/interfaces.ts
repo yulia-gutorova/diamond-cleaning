@@ -5,3 +5,8 @@ export interface ILogInForm {
     isCustomer: boolean
     display: boolean
 }
+
+export interface ILogInPage {
+    loginButtonTextHandler: (login : boolean) => void
+  
+  } 

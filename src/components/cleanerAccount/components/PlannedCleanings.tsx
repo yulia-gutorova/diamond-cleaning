@@ -5,10 +5,12 @@ import { IPlannedCleanings } from 'src/components/cleanerAccount/interfaces';
 
 const PlannedCleanings = (props: IPlannedCleanings) => {
 
+    //-----------------------------------------------------------------------
     const onPerformedHandler = (event : React.MouseEvent) => {
         props.onPerformedTaskHandler(props.id);
     }
 
+    //-----------------------------------------------------------------------
     return(
         <>
         <tr>

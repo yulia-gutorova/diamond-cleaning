@@ -3,6 +3,7 @@ import './OneCleaning.css'
 
 const OneCleaning = (props: IOneCleaning) => {
 
+    //-----------------------------------------------------------------------
     return(
         <>
         <tr>

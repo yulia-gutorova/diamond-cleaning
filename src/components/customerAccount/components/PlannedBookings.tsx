@@ -3,10 +3,12 @@ import { IPlannedBookings } from 'src/components/customerAccount/interfaces';
 
 const PlannedBookings = (props: IPlannedBookings) => {
 
+    //-----------------------------------------------------------------------
     const onDeleteHandler = (event : React.MouseEvent) => {
         props.onDeleteTaskHandler(props.id);
     }
 
+    //-----------------------------------------------------------------------
     return(
         <>
         <tr>
