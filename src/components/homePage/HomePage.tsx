@@ -1,15 +1,16 @@
-import './HomePage.css'
-import ContactUsSection from './ContactUsSection'
-import Footer from './Footer'
-import HeaderSection from './HeaderSection'
-import NavigationMenu from './NavigationMenu'
-import ServiceSection from './ServiceSection'
-import ChooseUsSection from './WhyChooseUs'
-import HowItWorks from './HowItWorks'
-import NewsLetter from './NewsLetterSection'
+import 'src/components/homePage/css/HomePage.css'
+
+import ContactUsSection from 'src/components/homePage/components/ContactUsSection'
+import HeaderSection    from 'src/components/homePage/components/HeaderSection'
+import ServiceSection   from 'src/components/homePage/components/ServiceSection'
+import ChooseUsSection  from 'src/components/homePage/components/WhyChooseUs'
+import HowItWorks       from 'src/components/homePage/components/HowItWorks'
+import NewsLetter       from 'src/components/homePage/components/NewsLetterSection'
+
+import { IHomePage }    from './interfaces'
 
 
-const HomePage = () => {
+const HomePage = (props: IHomePage) => {
 
     const  onScrollToElementClickHandler =(el : string) =>{
         let element = document.querySelector('.' + el);
@@ -18,17 +19,16 @@ const HomePage = () => {
             element.scrollIntoView({behavior:"smooth", block: "start", inline:"nearest"});
           }
     }
+    props.onLogOutClickHandler()
 
     return (
-        <div>
-            <NavigationMenu onScrollToElementClickHandler={onScrollToElementClickHandler}></NavigationMenu>
+        <div>     
             <HeaderSection></HeaderSection>
             <ContactUsSection></ContactUsSection>
             <ServiceSection></ServiceSection>
             <ChooseUsSection></ChooseUsSection>
             <HowItWorks></HowItWorks>
-            <NewsLetter></NewsLetter>
-            <Footer onScrollToElementClickHandler={onScrollToElementClickHandler}></Footer>
+            <NewsLetter></NewsLetter>          
         </div>
     )
 }

@@ -1,0 +1,90 @@
+*{
+    box-sizing: border-box;
+}
+.form-wrapper{
+    margin-top: 20px;
+    
+}
+
+.form-content{
+    background-color: rgb(157, 155, 155);
+    width: 80%;
+    margin: auto;
+    padding: 20px 0 20px
+}
+
+.form{
+    display: flex;
+    flex-direction: column;   
+}
+
+.labels{
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    vertical-align: top;
+    margin-top: 20px;
+}
+
+.label{
+    font-weight: bold;
+}
+
+.input-tab {
+    display: inline-block;
+    text-align: left;
+    width: 50%;
+    margin-left: 10px; 
+    
+}
+
+.input-tab-radio{
+    display: inline-block;
+    text-align: left;
+    width: 50%;
+    margin-left: 10px; 
+}
+
+.input-field {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    margin: 18px 0 0 10px;
+    border: 1px solid rgb(169, 218, 96);
+    font-size: 15px;
+    box-shadow: inset 0 0 10px rgb(169, 218, 96);
+  }
+
+#cleaner-name{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(169, 218, 96);
+    font-size: 15px;
+    box-shadow: inset 0 0 10px rgb(169, 218, 96); 
+}
+
+.form-button{
+    margin-top: 30px;
+}
+
+.label-radio{
+    margin-right: 18px;
+}
+
+.form-button{
+    background-color: rgb(245, 177, 51);
+    color: black;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 1s;
+    height: 30px;
+    border-radius: 10px;
+    width: 100px;
+}
+
+.form-button:hover{
+    background-color: rgb(243, 125, 8);
+    text-decoration: underline;
+    color:black;
+}
