@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react'
-import Booking from '../../models/Booking';
-import Member from '../../models/Member';
+import Member from 'src/models/Member';
 
 
-import LogInForm from './LogInForm'
+import LogInForm from 'src/components/logInPage/components/LogInForm'
 
 
-import './LogInPage.css'
+//import 'src/components/logInPage/css/LogInPage.css'
 
 
 export interface ILogInPage {
@@ -16,13 +15,14 @@ export interface ILogInPage {
 
 const LogInPage = (props: ILogInPage) => {
 
-  const[members, setMembers]= useState<Member[]>([]);
+  //-------------------------------------------------------------------
+  const [members, setMembers]= useState<Member[]>([]);
   const [isCustomer, setIsCustomer] = useState(false);
   const [display, setDisplay]  =  useState(true)
   const [text, setText] = useState('');
   const [login, setLogin] = useState(false);
      
-
+  //-------------------------------------------------------------------
   const fetchData =  () => {
     try
     {
@@ -39,13 +39,14 @@ const LogInPage = (props: ILogInPage) => {
         console.log(error);
     }   
   }
-     
+   
+  //-------------------------------------------------------------------
   useEffect(() => {
     fetchData();
   }, []); 
 
-  console.log('booking1');
-  console.log(members);
+/*   console.log('booking1');
+  console.log(members); */
 
  /*  const onSubmitHandler = (name :string) => {
     console.log('In onSubmitHandler');
@@ -87,12 +88,12 @@ const LogInPage = (props: ILogInPage) => {
   const onSubmitHandler = (name :string) => {
     
     const filtered = members.filter((value) => value.name === name);
-    console.log('Filtered')
-    console.log(filtered); 
+/*     console.log('Filtered')
+    console.log(filtered);  */
 
     if (filtered.length !== 0)
     {
-      console.log('inside filtered.length !== 0'); 
+      //console.log('inside filtered.length !== 0'); 
       setText(name);
       setDisplay(false);
       setIsCustomer(filtered[0].isCustomer);  
@@ -110,10 +111,11 @@ const LogInPage = (props: ILogInPage) => {
 
   //-------------------------------------------------------------------
   props.loginButtonTextHandler(login);
-
+/* 
   console.log('isCustomer');
-  console.log(isCustomer);  
-    
+  console.log(isCustomer);   */
+  
+  //-------------------------------------------------------------------
   return (
       <>
           <LogInForm  onSubmitHandler={onSubmitHandler}
