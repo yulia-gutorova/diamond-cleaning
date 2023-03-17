@@ -1,14 +1,5 @@
 import 'src/components/customerAccount/css/PerformedBookings.css'
-interface IPerformedBookings {
-    id:string
-    customerName: string
-    cleanerName: string
-    level: string
-    time: string
-    date: string
-    onDeleteTaskHandler: (id:string) => void
-    onCheckboxHandler : (id:string) => void
-}
+import { IPerformedBookings } from 'src/components/customerAccount/interfaces';
 
 
 const PerformedBookings = (props: IPerformedBookings) => {

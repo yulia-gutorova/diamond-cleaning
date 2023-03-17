@@ -1,12 +1,5 @@
+import { IOneCleaning } from 'src/components/cleanerAccount/interfaces'
 import './OneCleaning.css'
-interface IOneCleaning {
-    customerName: string
-    cleanerName: string
-    level: string
-    time: string
-    date: string
-}
-
 
 const OneCleaning = (props: IOneCleaning) => {
 

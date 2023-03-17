@@ -1,16 +1,6 @@
 import 'src/components/customerAccount/css/NewBooking.css'
-import { useState } from 'react';
-
-export interface FormData {
-    cleanerName : string;
-    level : string;
-    date: string;
-    time : string;
-}
-
-interface INewBooking{
-    onAddNewBooking: (formData : FormData) => void
-}
+import { useState }    from 'react';
+import { INewBooking, FormData } from 'src/components/customerAccount/interfaces';
 
 const NewBooking = (props: INewBooking) => {
 

@@ -11,15 +11,11 @@ import PlannedCleanings from 'src/components/cleanerAccount/components/PlannedCl
 
 
 const CLeanerAccount = () => {
-/*     const location = useLocation();
-    const data = location.state;
-    console.log('data in customer account')
-    console.log(data) */
 
     let {name} = useParams();
     let data = name;
-    console.log('data in customer account')
-    console.log(name);
+/*     console.log('data in customer account')
+    console.log(name); */
 
     const [bookings, setBookings] = useState<Booking[]>([]);
     const [update, setUpdate] = useState('initial');
@@ -42,31 +38,30 @@ const CLeanerAccount = () => {
         setUpdate('initial');
     }, []);
 
-    console.log('Bookings1');
-    console.log(bookings);
+/*     console.log('Bookings1');
+    console.log(bookings); */
 
     const onPerformedTaskHandler = (id: string) => {
-        console.log('inside onPerformedTaskHandler in cleaner account');
+/*         console.log('inside onPerformedTaskHandler in cleaner account');
         console.log('Id:');
-        console.log(id);
-        //deleteAllData(checkedBookings);
+        console.log(id); */
         setBookings(bookings.map(booking => (booking._id === id ? { ...booking, status: true } : booking)));
-        console.log('Bookings done:');
-        console.log(bookings);
+/*         console.log('Bookings done:');
+        console.log(bookings); */
 
         const updateData = async (id: string) => {
 
-            console.log('inside updateData in cleaner account');
+/*             console.log('inside updateData in cleaner account');
             console.log('Id');
-            console.log(id);
+            console.log(id); */
                  
             let newBooking= {
                 status: true
             } 
     
-            console.log('inside await update data in cleaner account');
+/*             console.log('inside await update data in cleaner account');
             console.log('New booking');
-            console.log(newBooking);
+            console.log(newBooking); */
     
              try
             {
@@ -112,14 +107,13 @@ const CLeanerAccount = () => {
             cleanerName={booking.cleanerName}
             level={booking.level}
             time={booking.time}
-            date={booking.date.toString()}
-        ></PerformedCleanings>
+            date={booking.date.toString()}></PerformedCleanings>
     ))
 
-    console.log('Planned cleanings:');
+/*     console.log('Planned cleanings:');
     console.log(plannedCleanings);
     console.log('Performed cleanings:');
-    console.log(performedCleanings);
+    console.log(performedCleanings); */
 
     return (<>
         <div className="cleaner-account-wrapper">

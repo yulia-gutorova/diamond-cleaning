@@ -1,12 +1,13 @@
 import 'src/components/customerAccount/css/CustomerAccount.css'
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from 'react';
-import { FormData } from './components/NewBooking';
 
-import Booking           from '../../models/Booking';
-import PlannedBookings   from './components/PlannedBookings';
-import PerformedBookings from './components/PerformedBookings';
-import NewBooking        from './components/NewBooking';
+import { useParams }           from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { FormData }            from 'src/components/customerAccount/interfaces';
+
+import Booking           from 'src/models/Booking';
+import PlannedBookings   from 'src/components/customerAccount/components/PlannedBookings';
+import PerformedBookings from 'src/components/customerAccount/components/PerformedBookings';
+import NewBooking        from 'src/components/customerAccount/components/NewBooking';
 
 
 const CustomerAccount = () => {
@@ -16,7 +17,7 @@ const CustomerAccount = () => {
 /*     console.log('data in customer account')
     console.log(name); */
 
-
+   //-----------------------------------------------------------------------
     const [bookings, setBookings] = useState<Booking[]>([]);
     const [checkedBookings, setCheckedBookings] = useState<string[]>([]);
     const [dubble, setDubble] = useState(false);
@@ -128,6 +129,7 @@ const CustomerAccount = () => {
         deleteData(id);
     }
 
+    //-----------------------------------------------------------------------
     const onCheckboxHandler = (id : string) => {
         console.log('inside onCheskboxHandler in customer account');
         console.log(id);
@@ -138,6 +140,7 @@ const CustomerAccount = () => {
         
     }
 
+    //-----------------------------------------------------------------------
     const onDeleteCheckedBookings = () => {
         console.log('inside onDeleteCheckedBookings in customer account');
         console.log('checkedBookings in onDeleteCheckedBookings');
@@ -145,6 +148,7 @@ const CustomerAccount = () => {
         deleteAllData(checkedBookings);
     }
 
+    //-----------------------------------------------------------------------
     const onAddNewBooking = (formData : FormData) => {
         console.log('inside onAddNewBooking in customer account');
         console.log('New booking in onAddNewBooking');
@@ -169,6 +173,7 @@ const CustomerAccount = () => {
         }                                                  
     }
 
+    //-----------------------------------------------------------------------
     const plannedBookings = bookings.filter(booking => (booking.customerName === data && booking.status === false)).map((booking) => (
         <PlannedBookings
             key={booking._id}
@@ -181,7 +186,7 @@ const CustomerAccount = () => {
             onDeleteTaskHandler={() => onDeleteTaskHandler(booking._id)}></PlannedBookings>
     ))
 
-    
+    //-----------------------------------------------------------------------
     const performedBookings = bookings.filter(booking => (booking.customerName === data && booking.status === true)).map((booking) => (
         <PerformedBookings
             key={booking._id}
@@ -196,8 +201,8 @@ const CustomerAccount = () => {
     ))
 
 
-    console.log('checkedBookings2');
-    console.log(checkedBookings);
+/*     console.log('checkedBookings2');
+    console.log(checkedBookings); */
 
     return (<>
 

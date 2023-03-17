@@ -1,16 +1,5 @@
 import 'src/components/customerAccount/css/PlannedBookings.css'
-
-interface IPlannedBookings {
-    id:string
-    customerName: string
-    cleanerName: string
-    level: string
-    time: string
-    date: string
-    onDeleteTaskHandler: (id:string) => void
-
-}
-
+import { IPlannedBookings } from 'src/components/customerAccount/interfaces';
 
 const PlannedBookings = (props: IPlannedBookings) => {
 
