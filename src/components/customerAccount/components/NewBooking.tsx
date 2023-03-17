@@ -1,4 +1,4 @@
-import './NewBooking.css'
+import 'src/components/customerAccount/css/NewBooking.css'
 import { useState } from 'react';
 
 export interface FormData {

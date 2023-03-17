@@ -1,16 +1,13 @@
 import 'src/components/homePage/css/HomePage.css'
 
-import ContactUsSection from './components/ContactUsSection'
-import HeaderSection    from './components/HeaderSection'
-import ServiceSection   from './components/ServiceSection'
-import ChooseUsSection  from './components/WhyChooseUs'
-import HowItWorks       from './components/HowItWorks'
-import NewsLetter       from './components/NewsLetterSection'
+import ContactUsSection from 'src/components/homePage/components/ContactUsSection'
+import HeaderSection    from 'src/components/homePage/components/HeaderSection'
+import ServiceSection   from 'src/components/homePage/components/ServiceSection'
+import ChooseUsSection  from 'src/components/homePage/components/WhyChooseUs'
+import HowItWorks       from 'src/components/homePage/components/HowItWorks'
+import NewsLetter       from 'src/components/homePage/components/NewsLetterSection'
 
-
-interface IHomePage {
-    onLogOutClickHandler:  () => void;
-}
+import { IHomePage }    from './interfaces'
 
 
 const HomePage = (props: IHomePage) => {

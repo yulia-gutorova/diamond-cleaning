@@ -3,15 +3,11 @@ import 'src/components/homePage/css/WhyChooseUs.css'
 import { truncateSync } from 'fs';
 import { useState } from 'react';
 
-import WhyChooseUsCard from './WhyChooseUsCard';
+import WhyChooseUsCard from 'src/components/homePage/components/WhyChooseUsCard';
 
 const ChooseUsSection = () => {
     const [display, setDisplay] = useState(true);
 
-/*     const onDisplay = () => {
-        setDisplay(!display)
-    }
- */
     return (
         <div className='choose-us-section-wrapper'>
 

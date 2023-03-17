@@ -1,16 +1,8 @@
 import 'src/components/homePage/css/HowItWorks.css'
 
-import { useState } from 'react';
-import { Link }     from 'react-router-dom';
-
-
-interface IHowItWorksCard {
-    info       : boolean
-    circleText : string
-    hText      : string
-    pText      : string
-    num        : number
-}
+import { useState }        from 'react';
+import { Link }            from 'react-router-dom';
+import { IHowItWorksCard } from '../interfaces';
 
 const HowItWorksCard = (props: IHowItWorksCard) => {
 

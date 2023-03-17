@@ -1,5 +1,5 @@
 
-import './OneCleaning.css'
+import 'src/components/cleanerAccount/css/OneCleaning.css'
 
  interface IPlannedCleanings {
     id:string

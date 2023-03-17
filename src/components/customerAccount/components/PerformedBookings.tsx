@@ -1,8 +1,5 @@
-import Booking from "../../models/Booking"
-import Level from "../../models/Booking"
-import './PlannedBookings.css'
-
-interface IPlannedBookings {
+import 'src/components/customerAccount/css/PerformedBookings.css'
+interface IPerformedBookings {
     id:string
     customerName: string
     cleanerName: string
@@ -10,19 +7,29 @@ interface IPlannedBookings {
     time: string
     date: string
     onDeleteTaskHandler: (id:string) => void
-
+    onCheckboxHandler : (id:string) => void
 }
 
 
-const PlannedBookings = (props: IPlannedBookings) => {
+const PerformedBookings = (props: IPerformedBookings) => {
 
     const onDeleteHandler = (event : React.MouseEvent) => {
         props.onDeleteTaskHandler(props.id);
     }
 
+    const onCheckboxHandler = (event : React.ChangeEvent<HTMLInputElement>) => {
+        console.log('Insise on checkbox handler in performed bookings');
+        props.onCheckboxHandler(props.id)
+    }
+
     return(
         <>
         <tr>
+            <td><li>
+                 <input type='checkbox' 
+                        onChange={onCheckboxHandler}
+                        />
+                </li></td> 
             <td><li>{props.date.slice(0, 10)}</li></td> 
             <td><li>{props.time}</li></td> 
             <td><li>{props.cleanerName}</li></td>  
@@ -30,7 +37,7 @@ const PlannedBookings = (props: IPlannedBookings) => {
                            
             <td>
                 <button 
-                className="planned-bookings-button"
+                className="perform-bookings-button"
                 onClick={onDeleteHandler}><i>Delete</i></button>
             </td>
         </tr>
@@ -38,4 +45,6 @@ const PlannedBookings = (props: IPlannedBookings) => {
     )
 }
 
-export default PlannedBookings
+// checked={copmlete}
+
+export default PerformedBookings

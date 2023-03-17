@@ -1,13 +1,8 @@
 import { useState } from 'react'
 import 'src/components/homePage/css/WhyChooseUs.css'
 
+import { IWhyChooseUsCard }    from 'src/components/homePage/interfaces'
 
-interface IWhyChooseUsCard {
-    text    : string
-    title   : string
-    icon    : string
-    display :boolean
-}
 const WhyChooseUsCard = (props : IWhyChooseUsCard) => {
 
     const [display, setDisplay] = useState(true);

@@ -1,4 +1,5 @@
-import './PerformedBookings.css'
+import 'src/components/cleanerAccount/css/PerformedCleanings.css'
+
 interface IPerformedCleanings {
     id:string
     customerName: string

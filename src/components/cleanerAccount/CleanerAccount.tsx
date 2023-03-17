@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState }    from 'react';
 import { useLocation, useParams } from 'react-router-dom';
-import Booking from '../../models/Booking';
+
+import Booking from 'src/models/Booking';
 
 
-import './CleanerAccount.css'
-import PerformedCleanings from '../memberAccount/PerfopmedCleanings';
-import PlannedCleanings from '../memberAccount/PlannedCleanings';
+import 'src/components/cleanerAccount/css/CleanerAccount.css'
+
+import PerformedCleanings from 'src/components/cleanerAccount/components/PerfopmedCleanings';
+import PlannedCleanings from 'src/components/cleanerAccount/components/PlannedCleanings';
 
 
 const CLeanerAccount = () => {

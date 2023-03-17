@@ -1,11 +1,11 @@
-import './CustomerAccount.css'
+import 'src/components/customerAccount/css/CustomerAccount.css'
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { FormData } from './components/NewBooking';
 
 import Booking           from '../../models/Booking';
-import PlannedBookings   from '../memberAccount/PlannedBookings';
-import PerformedBookings from '../memberAccount/PerformedBookings';
+import PlannedBookings   from './components/PlannedBookings';
+import PerformedBookings from './components/PerformedBookings';
 import NewBooking        from './components/NewBooking';
 
 
