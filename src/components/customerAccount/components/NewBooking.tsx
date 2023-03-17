@@ -19,10 +19,9 @@ const NewBooking = (props: INewBooking) => {
     level : '',
     date : '',
     time : ''
-    })
+    });
     const [isChecked, setIsChecked] = useState('');
  
-    //const [customerName, setCustomerName] = useState('');
 
     const submitHandler = (event: React.FormEvent) => {
        event.preventDefault();
@@ -42,16 +41,16 @@ const NewBooking = (props: INewBooking) => {
 
     const changeHandler = (event : React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => { 
                
-        console.log('in changeHandler');
+/*         console.log('in changeHandler'); */
         const {name} = event.target;
 
         if (name === 'level')setIsChecked(event.target.value); 
 
-        console.log('name');
-        console.log(name)
+/*         console.log('name');
+        console.log(name) */
         setFormData({...formData, [name]: event.target.value});
-        console.log('formdata in changehandler')
-        console.log(formData) 
+/*         console.log('formdata in changehandler')
+        console.log(formData)  */
     }
 
   
@@ -84,7 +83,6 @@ const NewBooking = (props: INewBooking) => {
                         <label className='label'>Select a type of cleaning:</label>
 
                         <div className='input-tab-radio' >
-                            {/* <select name="" id="" value={formData.level}> */}
                                 <input  type="radio" 
                                         id="basic" 
                                         name="level" 
@@ -143,7 +141,7 @@ const NewBooking = (props: INewBooking) => {
 
                         <div className='input-tab'>
                             <input  id="time" 
-                                    type="text" 
+                                    type="time" 
                                     name="time"
                                     className="input-field" 
                                     // pattern="([0-24]=[0-59])" 

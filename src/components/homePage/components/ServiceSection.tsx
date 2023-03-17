@@ -1,8 +1,9 @@
-import './ServiceSection.css'
-import BasicCleaning from '../images/basic-cleaning.png'
-import TopCleaning from '../images/top-cleaning.png'
-import DiamondCleaning from '../images/dimond-cleaning.png'
-import WindowCleaning from '../images/window-cleaning.png'
+import 'src/components/homePage/css/ServiceSection.css'
+
+import BasicCleaning   from 'src/images/basic-cleaning.png'
+import TopCleaning     from 'src/images/top-cleaning.png'
+import DiamondCleaning from 'src/images/dimond-cleaning.png'
+import WindowCleaning  from 'src/images/window-cleaning.png'
 
 const ServiceSection = () => {
     

@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom"
-import './Footer.css'
-import Dimond from '../images/logo2.webp'
-import { useState } from "react";
+
+import 'src/components/common/css/Footer.css'
+
+import Dimond from 'src/images/logo2.webp'
+
 
 interface IFooter {
     onScrollToElementClickHandler : (el : string) => void;
@@ -9,11 +11,14 @@ interface IFooter {
 
 const Footer = (props: IFooter) => {
    
+    //-------------------------------------------------------------------
     const scrollToElementClickHandler = (event : React.MouseEvent<HTMLElement>) => {
         let el = event.currentTarget.dataset.element!;
         props.onScrollToElementClickHandler(el)
     }
 
+
+    //-------------------------------------------------------------------
     return (
         <footer className='footer'>
             <div className="footer-container">
@@ -29,11 +34,11 @@ const Footer = (props: IFooter) => {
                 </div> 
                 <ul className="footer-list">
                     <li className="list-title">Main menu</li>
-                    <li className="list" data-element='header-section-wrapper' onClick={scrollToElementClickHandler}>Home</li>
-                    <li className="list" data-element='contact-section-wrapper' onClick={scrollToElementClickHandler}>Contact</li>
-                    <li className="list" data-element='offered-services-section-wrapper' onClick={scrollToElementClickHandler}>Services</li>
-                    <li className="list" data-element='choose-us-section-wrapper' onClick={scrollToElementClickHandler}>Why choose us</li>
-                    <li className="list" data-element='how-section-wrapper' onClick={scrollToElementClickHandler}>How it works</li>
+                    <Link to={"/"} style={{textDecoration: 'none'}}><li className="list" data-element='header-section-wrapper' onClick={scrollToElementClickHandler}>Home</li></Link> 
+                    <Link to={"/"} style={{textDecoration: 'none'}}><li className="list" data-element='contact-section-wrapper' onClick={scrollToElementClickHandler}>Contact</li></Link> 
+                    <Link to={"/"} style={{textDecoration: 'none'}}><li className="list" data-element='offered-services-section-wrapper' onClick={scrollToElementClickHandler}>Services</li></Link> 
+                    <Link to={"/"} style={{textDecoration: 'none'}}><li className="list" data-element='choose-us-section-wrapper' onClick={scrollToElementClickHandler}>Why choose us</li></Link> 
+                    <Link to={"/"} style={{textDecoration: 'none'}}><li className="list" data-element='how-section-wrapper' onClick={scrollToElementClickHandler}>How it works</li></Link> 
 
                 </ul>
                 <ul className="footer-list">

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './WhyChooseUs.css'
+import 'src/components/homePage/css/WhyChooseUs.css'
 
 
 interface IWhyChooseUsCard {

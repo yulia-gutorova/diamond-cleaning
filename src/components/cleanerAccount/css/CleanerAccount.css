@@ -1,23 +1,24 @@
-.customer-account-wrapper{
+
+.cleaner-account-wrapper{
     
     margin-top: 50px;
     min-height: 500px;
 }
 
-.customer-account-content{
+.cleaner-account-content{
     width: 80%;
     margin: auto;
 }
 
-.customer-background-image{
+.cleaner-background-image{
     height: 300px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('../images/cleaner-customer-pages.jpeg');
+    background-image: url('src/images/cleaner-customer-pages.jpeg');
     filter: blur(0px); 
 }
 
-.customer-account-title{
+.cleaner-account-title{
     background-color: rgba(220, 219, 219, 0.008); 
     /* border: 3px solid rgb(169, 218, 96); */
     border: none;
@@ -31,15 +32,15 @@
     text-align: center;
 }
 
-.customer-account-title{
+.cleaner-account-title{
     text-align: center;
 }
 
-.customer-list-of-bookings{
+.cleaner-planned-cleanings, .cleaner-performed-cleanings {
     text-align: center;
 }
 
-.customer-table {
+.cleaner-table {
     width:  100%;
     border: 1px solid black;
     border-collapse: collapse;
@@ -49,30 +50,8 @@
 }
 
 td{
-    width: 10%;
+    width: 20%;
     height: 40px;
     border: 1px solid black;
     border-collapse: collapse; 
-}
-
-.customer-perform-bookings-button{
-    background-color: rgb(245, 177, 51);
-    color: black;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 1s;
-    height: 30px;
-    border-radius: 10px;
-    width: 300px;
-}
-
-.customer-perform-bookings-button:hover{
-    background-color: rgb(243, 125, 8);
-    text-decoration: underline;
-    color:black;
-}
-
-.customer-list-of-bookings h3{
-    color: orangered;
 }

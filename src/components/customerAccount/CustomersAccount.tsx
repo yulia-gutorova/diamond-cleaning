@@ -1,45 +1,47 @@
 import './CustomerAccount.css'
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
-import Booking from '../../models/Booking';
-import LogInMenu from '../logInPage/LogInMenu';
-import LogInFooter from '../logInPage/LogInFooter';
-import PlannedBookings from './PlannedBookings';
-import PerformedBookings from './PerformedBookings';
-import NewBooking from './NewBooking';
-import { FormData } from './NewBooking';
+import { FormData } from './components/NewBooking';
 
+import Booking           from '../../models/Booking';
+import PlannedBookings   from '../memberAccount/PlannedBookings';
+import PerformedBookings from '../memberAccount/PerformedBookings';
+import NewBooking        from './components/NewBooking';
 
 
 const CustomerAccount = () => {
 
-    const location = useLocation();
-    const data : string= location.state;
-    console.log('data in customer account')
-    console.log(data)
+    let {name} = useParams();
+    let data = name;
+/*     console.log('data in customer account')
+    console.log(name); */
+
 
     const [bookings, setBookings] = useState<Booking[]>([]);
     const [checkedBookings, setCheckedBookings] = useState<string[]>([]);
     const [dubble, setDubble] = useState(false);
+    const [update, setUpdate] = useState('initial');
+
+    //-----------------------------------------------------------------------
     const fetchData = async() => {
         try {
             const resp = await fetch('http://localhost:5001/bookings')
             const data = await resp.json();     
             setBookings(data); 
-            console.log('Bookings'); 
-            console.log(bookings);  
+/*             console.log('Bookings'); 
+            console.log(bookings);   */
         }
         catch (error) {
             console.log(error);
         }
     }
 
-
+    //-----------------------------------------------------------------------
     const addData = async (formData : FormData ) => {
 
-        console.log('inside addData in customer account');
+/*         console.log('inside addData in customer account');
         console.log('FormData in add Data in customer account');
-        console.log(formData);
+        console.log(formData); */
              
         let newBooking= {
             customerName : data,
@@ -50,9 +52,9 @@ const CustomerAccount = () => {
             status: false
         } 
 
-        console.log('inside await create data in customer account');
+/*         console.log('inside await create data in customer account');
         console.log('New booking');
-        console.log(newBooking);
+        console.log(newBooking); */
 
          try
         {
@@ -71,11 +73,12 @@ const CustomerAccount = () => {
           console.log(error);     
         } 
 
-        fetchData();
+        //fetchData();
+        setUpdate('addData')
     }
 
 
-
+    //-----------------------------------------------------------------------
     const deleteData = async(id: string) => {
         console.log('inside deleteData in customer account');
 
@@ -88,10 +91,11 @@ const CustomerAccount = () => {
         catch (error) {
             console.log(error);
         }
-        fetchData();
+        //fetchData();
+        setUpdate('deleteData')
     }
 
-
+    //-----------------------------------------------------------------------
     const deleteAllData = async(checkedBookings : string[]) => {
         console.log('inside deleteAllData in customer account');
 
@@ -107,14 +111,17 @@ const CustomerAccount = () => {
                 console.log(error);
             }
         }
-        fetchData();
+        //fetchData();
+        setUpdate('deleteAllData')
     }
 
     useEffect(() => {
         fetchData();
-    }, []);
+        console.log('useEffect'); 
+        setUpdate('initial');
+    }, [update]);
 
-
+    //-----------------------------------------------------------------------
     const onDeleteTaskHandler = (id : string) => {
         console.log('inside onDeleteTaskHandler in customer account');
         console.log(id);
@@ -150,13 +157,17 @@ const CustomerAccount = () => {
                                                            booking.status === false
                                                            ));
         let dubbel = dubbleBookings.length === 0;                                                 
-        if (dubbel){addData(formData); setDubble(false)} 
-        else{console.log('Dubble bookings'); setDubble(true)}                                                  
-        //addData(formData);
+        if (dubbel)
+        {
+            addData(formData); 
+            setDubble(false)
+        } 
+        else
+        {
+            console.log('Dubble bookings'); 
+            setDubble(true)
+        }                                                  
     }
-
-
-
 
     const plannedBookings = bookings.filter(booking => (booking.customerName === data && booking.status === false)).map((booking) => (
         <PlannedBookings
@@ -229,13 +240,9 @@ const CustomerAccount = () => {
                         className="customer-perform-bookings-button"
                         onClick={onDeleteCheckedBookings}><i>Delete All Selected Bookings</i></button>}
                     </div>
-
                 </div>
             </div>
-
         </div>
-        <LogInFooter></LogInFooter>
-
     </>)
 }
 

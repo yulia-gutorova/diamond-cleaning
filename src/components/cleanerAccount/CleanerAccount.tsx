@@ -1,20 +1,26 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import Booking from '../../models/Booking';
 
-import LogInMenu from '../logInPage/LogInMenu';
+
 import './CleanerAccount.css'
-import PerformedCleanings from './PerfopmedCleanings';
-import PlannedCleanings from './PlannedCleanings';
+import PerformedCleanings from '../memberAccount/PerfopmedCleanings';
+import PlannedCleanings from '../memberAccount/PlannedCleanings';
 
 
 const CLeanerAccount = () => {
-    const location = useLocation();
+/*     const location = useLocation();
     const data = location.state;
     console.log('data in customer account')
-    console.log(data)
+    console.log(data) */
+
+    let {name} = useParams();
+    let data = name;
+    console.log('data in customer account')
+    console.log(name);
 
     const [bookings, setBookings] = useState<Booking[]>([]);
+    const [update, setUpdate] = useState('initial');
 
     const fetchData = async () => {
         try {
@@ -31,6 +37,7 @@ const CLeanerAccount = () => {
 
     useEffect(() => {
         fetchData();
+        setUpdate('initial');
     }, []);
 
     console.log('Bookings1');
@@ -75,7 +82,8 @@ const CLeanerAccount = () => {
             {
               console.log(error);     
             } 
-            fetchData();
+            //fetchData();
+            setUpdate('updateData');
         }
 
         updateData(id);

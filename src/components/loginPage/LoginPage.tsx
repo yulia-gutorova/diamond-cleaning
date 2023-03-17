@@ -1,21 +1,26 @@
 import { useEffect, useState } from 'react'
 import Booking from '../../models/Booking';
 import Member from '../../models/Member';
-import LogInFooter from './LogInFooter';
+
 
 import LogInForm from './LogInForm'
-import LogInMenu from './LogInMenu';
+
 
 import './LogInPage.css'
 
 
+export interface ILogInPage {
+  loginButtonTextHandler: (login : boolean) => void
 
-const LogInPage = () => {
+} 
+
+const LogInPage = (props: ILogInPage) => {
 
   const[members, setMembers]= useState<Member[]>([]);
   const [isCustomer, setIsCustomer] = useState(false);
   const [display, setDisplay]  =  useState(true)
   const [text, setText] = useState('');
+  const [login, setLogin] = useState(false);
      
 
   const fetchData =  () => {
@@ -42,7 +47,7 @@ const LogInPage = () => {
   console.log('booking1');
   console.log(members);
 
-  const onSubmitHandler = (name :string) => {
+ /*  const onSubmitHandler = (name :string) => {
     console.log('In onSubmitHandler');
     console.log(name);
     console.log('booking2')
@@ -76,7 +81,35 @@ const LogInPage = () => {
       setText('Not exist');
       setDisplay(true)
     };
+  } */
+
+  //-------------------------------------------------------------------
+  const onSubmitHandler = (name :string) => {
+    
+    const filtered = members.filter((value) => value.name === name);
+    console.log('Filtered')
+    console.log(filtered); 
+
+    if (filtered.length !== 0)
+    {
+      console.log('inside filtered.length !== 0'); 
+      setText(name);
+      setDisplay(false);
+      setIsCustomer(filtered[0].isCustomer);  
+      setLogin(true);    
+    };
+
+    if (filtered.length === 0)
+    {
+      setText('Not exists');
+      setDisplay(true);
+      setLogin(false);
+    };
+
   }
+
+  //-------------------------------------------------------------------
+  props.loginButtonTextHandler(login);
 
   console.log('isCustomer');
   console.log(isCustomer);  

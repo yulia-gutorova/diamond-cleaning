@@ -9,7 +9,7 @@
     justify-content:space-between;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('../images/contact-us.png');
+    background-image: url('src/images/contact-us.png');
 }
 
 .contact-title{

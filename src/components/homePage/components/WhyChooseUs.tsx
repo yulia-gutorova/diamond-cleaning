@@ -1,6 +1,8 @@
+import 'src/components/homePage/css/WhyChooseUs.css'
+
 import { truncateSync } from 'fs';
 import { useState } from 'react';
-import './WhyChooseUs.css'
+
 import WhyChooseUsCard from './WhyChooseUsCard';
 
 const ChooseUsSection = () => {
