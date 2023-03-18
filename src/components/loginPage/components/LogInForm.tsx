@@ -1,31 +1,27 @@
-import { useState } from "react"
-import { Link, Navigate, useNavigate, useNavigation } from "react-router-dom";
+import 'src/components/logInPage/css/LogInForm.css'
 
-import { redirect } from "react-router-dom";
-import Booking from "../../models/Booking";
-import './LogInForm.css'
+import { useState }    from "react"
+import { useNavigate } from "react-router-dom";
 
-interface ILogInForm {
-    onSubmitHandler(name: string): void
-    text: string
-    isCustomer: boolean
-    display: boolean
-}
+import { ILogInForm } from 'src/components/logInPage/interfaces';
+
 
 const LogInForm = (props: ILogInForm) => {
-    //const navigation = useNavigation();
 
     let navigation = useNavigate();
 
+    //-------------------------------------------------------------------
     const [name, setName] = useState('');
 
-    console.log('Filtered in form');
+    //console.log('Filtered in form');
 
+    //-------------------------------------------------------------------
     const submitHandler = (e: React.FormEvent) => {
         e.preventDefault();
         props.onSubmitHandler(name);
     }
 
+    //-------------------------------------------------------------------
     return (
         <div className='login-section-wrapper'>
 
@@ -54,20 +50,17 @@ const LogInForm = (props: ILogInForm) => {
                 </div>
 
                 <div className="logged-in-buttons" style={{ display: !props.display ? 'flex' : 'none' }}>
-                    {/* {props.isCustomer && <Link to={"/login/customer"} state={name}><button className="login-section-button btn" type="button">My Account</button></Link>}
-                    {!props.isCustomer && <Link to={"/login/cleaner"} state={name}><button className="login-section-button btn" type="button">My Account</button></Link>} */}
-                {props.isCustomer && <button className="login-section-button btn" 
-                                             type="button"
-                                             onClick={() => navigation(`/login/customer/${name}`)}>My Account</button>}
-                {!props.isCustomer && <button className="login-section-button btn" 
-                                             type="button"
-                                             onClick={() => navigation(`/login/cleaner/${name}`)}>My Account</button>}
-                
+
+                    {props.isCustomer && <button className="login-section-button btn"
+                                                 type="button"
+                                                 onClick={() => navigation(`/login/customer/${name}`)}>My Account</button>}
+                    {!props.isCustomer && <button className="login-section-button btn"
+                                                  type="button"
+                                                  onClick={() => navigation(`/login/cleaner/${name}`)}>My Account</button>}
                 </div>
 
             </form>
 
-            {/* <p style={{ visibility: props.filtered.length !== 0 ?  'hidden' : 'visible'  }}> */}
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import 'src/components/homePage/css/ServiceSection.css'
+import classes from 'src/components/homePage/css/ServiceSection.module.css'
 
 import BasicCleaning   from 'src/images/basic-cleaning.png'
 import TopCleaning     from 'src/images/top-cleaning.png'
@@ -19,7 +19,7 @@ const ServiceSection = () => {
         },
         {
             id: 2,
-            itle: 'Top Cleaning',
+            title: 'Top Cleaning',
             text: 'Our company delivers a Top Cleaning service that covers '
                 + ' all the areas that are traditionally covered by Basic Cleaning'
                 + ' and some additional areas, inside and outside. ',
@@ -45,26 +45,26 @@ const ServiceSection = () => {
     ]
 
     return (
-        <section className='offered-services-section-wrapper'>
-            <div className='offered-services-section'>
-                <div className='offered-services-section-title'>
+        <section className={classes.offeredServicesSectionWrapper}>
+            <div className={classes.offeredServicesSection}>
+                <div className={classes.offeredServicesSectionTitle}>
                     <h2>What we do</h2>
                     <h1>Offering high quality cleaning services <br /><strong>at affordable prices</strong></h1>
                 </div>
-                <hr className='service-hr'/>
+                <hr className={classes.serviceHr}/>
 
-                <div className='offered-services-section-content'>
+                <div className={classes.offeredServicesSectionContent}>
                     {props.map((card) =>
                     (
-                        <div key={card.id} className='offered-services-card'>
-                            <div className='offered-services-image'>
-                                <img className='servise-image' src={card.image} />
+                        <div key={card.id} className={classes.offeredServicesCard}>
+                            <div className={classes.offeredServicesImage}>
+                                <img className={classes.serviceImage} src={card.image} />
                             </div>
-                            <div className='offered-services-text'>
+                            <div className={classes.offeredServicesText}>
                                 <h3>{card.title}</h3>
                                 <p>{card.text}</p>
                             </div>
-                            <button className='more-info'>More info</button>
+                            <button className={classes.moreInfo}>More info</button>
                         </div>
                     ))}
                 </div>

@@ -1,18 +1,11 @@
 import 'src/components/cleanerAccount/css/PerformedCleanings.css'
 
-interface IPerformedCleanings {
-    id:string
-    customerName: string
-    cleanerName: string
-    level: string
-    time: string
-    date: string
-}
-
+import { IPerformedCleanings } from 'src/components/cleanerAccount/interfaces'
 
 const PerformedCleanings = (props: IPerformedCleanings) => {
 
 
+    //-----------------------------------------------------------------------
     return(
         <>
         <tr>
@@ -24,7 +17,5 @@ const PerformedCleanings = (props: IPerformedCleanings) => {
     </>
     )
 }
-
-// checked={copmlete}
 
 export default PerformedCleanings

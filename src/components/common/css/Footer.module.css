@@ -1,4 +1,4 @@
-.footer-container{
+.footerContainer{
     margin-top: 50px;
     display: flex;
     justify-content: space-around;
@@ -6,47 +6,41 @@
     height: 230px;
 }
 
-ul li{
-    color: black;
-    padding: 5px 10px 5px 10px;
-}
-
-ul li.list:hover{
-    color: white;
-}
-
-.footer-list, .login-footer-list{
+.footerList{
     list-style: none;
     text-decoration: none;
 }
 
-
-ul li{
+.footerList .list{
+    color: black;
+    padding: 5px 10px 5px 10px;
     font-size: 17px;
     margin-bottom: 0px;
 }
 
-ul li.list-title{
+.footerList li.list:hover{
+    color: white;
+}
+
+/* .footer-list li{
+    font-size: 17px;
+    margin-bottom: 0px;
+} */
+
+.footerList li.list-title{
     font-weight: bold;
     font-size: 20px;
     margin-bottom: 10px;
     text-decoration: underline;
 }
 
-.footer-about{
+.footerAbout{
     padding-top: 10px;
     width: 15%;
     text-align: center;
-    /* background: radial-gradient(rgb(179, 177, 177), rgb(126, 125, 125)); */
 }
-/* .footer-about:hover{
-    padding-top: 10px;
-    width: 15%;
-    text-align: center;
-    background: radial-gradient(rgb(207, 204, 204), rgb(121, 120, 120));
-} */
 
-.footer-logo{
+.footerLogo{
     font-family:fantasy;
     font-weight: bold;
     display: flex;
@@ -54,20 +48,27 @@ ul li.list-title{
     transition: all 0.3s ease-in-out;
 }
 
-.footer-logo:hover{
+.footerLogo:hover{
     transform: scale(1.1);
 }
 
-.footer-about-text{
+.logoImg{
+    height: 50px;
+    width: auto;
+    padding-top: 5px;
+    
+  }
+
+.footerAboutText{
   line-height: 20px;
   transition: all 0.5s ease-in-out;
 }
 
- .footer-about-text:hover{
+.footerAboutText:hover{
     color:white;
 } 
 
-.vertical-line{
+.verticalLine{
     border-left: 2px solid rgb(108, 106, 106);
     height: 120px;
     position: absolute;

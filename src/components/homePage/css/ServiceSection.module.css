@@ -1,32 +1,32 @@
-.offered-services-section-wrapper{
+.offeredServicesSectionWrapper{
     width: 90%;
     background-color: rgb(251, 249, 249);
     margin: 0 auto;
 }
 
-.offered-services-section{
+.offeredServicesSection{
    padding-top: 20px; 
    padding-bottom: 30px;
 }
 
-.offered-services-section-title h2{
+.offeredServicesSectionTitle h2{
    color: rgb(9, 54, 137)
 }
 
-.offered-services-section-content{
+.offeredServicesSectionContent{
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap;
     margin-top: 50px;
 }
 
-.servise-image{
+.serviceImage{
     margin-top: 20px;
     width: 200px;
     height: 150px;
 }
 
-.offered-services-card{
+.offeredServicesCard{
     margin-top: 30px;
     border: 1px solid gray;
     border-radius: 20px;
@@ -36,35 +36,35 @@
     background-color: white ;
 }
 
-.offered-services-card:hover{
+.offeredServicesCard:hover{
     transform: scale(1.05);
     box-shadow: 0 0 5px gray
 }
 
-.offered-services-section-title p{
+.offeredServicesSectionTitle p{
     padding: 10px;
     line-height: 20px;
 }
 
-.service-hr{
+.serviceHr{
     width: 40%;
     border-top: 5px orange solid;
     float: left;
 }
 
-.offered-services-section-title h1{
+.offeredServicesSectionTitle h1{
     font-size: 30px;
     margin: 20px 0;
 }
 
-.offered-services-section-title h2{
+.offeredServicesSectionTitle h2{
     margin-top: 0;
     margin-bottom: 10px;
     color: gray;
 }
 
 
-.more-info {
+.moreInfo {
     background-color: rgb(245, 177, 51);
     color: black;
     font-size: 16px;
@@ -78,7 +78,7 @@
 }
     
  
-.more-info:hover{
+.moreInfo:hover{
     background-color: rgb(243, 125, 8);
     text-decoration: underline;
     color:black;

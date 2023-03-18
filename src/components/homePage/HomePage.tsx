@@ -1,5 +1,3 @@
-import 'src/components/homePage/css/HomePage.css'
-
 import ContactUsSection from 'src/components/homePage/components/ContactUsSection'
 import HeaderSection    from 'src/components/homePage/components/HeaderSection'
 import ServiceSection   from 'src/components/homePage/components/ServiceSection'
@@ -12,15 +10,10 @@ import { IHomePage }    from './interfaces'
 
 const HomePage = (props: IHomePage) => {
 
-    const  onScrollToElementClickHandler =(el : string) =>{
-        let element = document.querySelector('.' + el);
-        console.log(element);
-        if (element) {
-            element.scrollIntoView({behavior:"smooth", block: "start", inline:"nearest"});
-          }
-    }
+    //-----------------------------------------------------------------------
     props.onLogOutClickHandler()
 
+    //-----------------------------------------------------------------------
     return (
         <div>     
             <HeaderSection></HeaderSection>

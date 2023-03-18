@@ -1,6 +1,5 @@
-import 'src/components/homePage/css/WhyChooseUs.css'
+import classes from 'src/components/homePage/css/WhyChooseUs.module.css'
 
-import { truncateSync } from 'fs';
 import { useState } from 'react';
 
 import WhyChooseUsCard from 'src/components/homePage/components/WhyChooseUsCard';
@@ -9,7 +8,7 @@ const ChooseUsSection = () => {
     const [display, setDisplay] = useState(true);
 
     return (
-        <div className='choose-us-section-wrapper'>
+        <div className={classes.chooseUsSectionWrapper}>
 
             <WhyChooseUsCard
              display={display}
@@ -19,7 +18,7 @@ const ChooseUsSection = () => {
             ></WhyChooseUsCard>
 
             <div
-                className="why-vertical-line-1">
+                className="whyVerticalLine1">
             </div>
 
             <WhyChooseUsCard
@@ -30,7 +29,7 @@ const ChooseUsSection = () => {
             ></WhyChooseUsCard>
 
             <div
-                className="why-vertical-line-2">
+                className="whyVerticalLine2">
             </div>
 
             <WhyChooseUsCard
@@ -41,7 +40,7 @@ const ChooseUsSection = () => {
             ></WhyChooseUsCard>
 
             <div
-                className="why-vertical-line-3">
+                className="whyVerticalLine3">
             </div>
 
             <WhyChooseUsCard

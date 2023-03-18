@@ -1,44 +1,38 @@
-import 'src/components/homePage/css/ContactUsSection.css'
+import classes from 'src/components/homePage/css/ContactUsSection.module.css'
 
 const ContactUsSection = () => {
     
     return (
-        <div className='contact-section-wrapper'>
-            <div className='contact-card call-us'>
-                <i className="fa-solid fa-phone-volume fa-xl"></i>
-
-                <p className='contact-title'>Call us now!</p>
-                <div className="contact-content">
-
-                    <p className='contact-text'>8-8000-123-00-00</p>
-                </div>
-            </div>
-
-                <div 
-                    className="vertical-line-1">
-                </div> 
-
-            <div className='contact-card open'>
-                <i className="fa-solid fa-clock fa-xl"></i>
-
-                <p className='contact-title'>We are open every day</p>
-                <div className="contact-content">
-
-                    <p className='contact-text'>8:00 - 21:00</p>
+        <div className={classes.contactSectionWrapper}>
+            <div className={classes.contactCard}>
+                 <i className="fa-solid fa-phone-volume fa-xl"></i> 
+                <p className={classes.contactTitle}>Call us now!</p>
+                <div className={classes.contactContent}>
+                    <p className={classes.contactText}>8-8000-123-00-00</p>
                 </div>
             </div>
 
             <div 
-                    className="vertical-line-2">
+                className={classes.verticalLine1}>
             </div> 
 
-            <div className='contact-card address'>
+            <div className={classes.contactCard}>
+                <i className="fa-solid fa-clock fa-xl"></i>
+                <p className={classes.contactTitle}>We are open every day</p>
+                <div className={classes.contactContent}>
+                    <p className={classes.contactText}>8:00 - 21:00</p>
+                </div>
+            </div>
+
+            <div 
+                className={classes.verticalLine2}>
+            </div> 
+
+            <div className={classes.contactCard}>
                 <i className="fa-solid fa-location-dot fa-xl"></i>
-
-                <p className='contact-title'>Our main office</p>
-                <div className="contact-content">
-
-                    <p className='contact-text'>Drottningsgatan 1, Stockholm</p>
+                    <p className={classes.contactTitle}>Our main office</p>
+                <div className={classes.contactContent}>
+                    <p className={classes.contactText}>Drottningsgatan 1, Stockholm</p>
                 </div>
             </div>
         </div>

@@ -10,6 +10,10 @@
     margin: auto;
 }
 
+.cleaner-account-content h3{
+    color: orangered;
+}
+
 .cleaner-background-image{
     height: 300px;
     background-repeat: no-repeat;

@@ -58,7 +58,7 @@
 } 
 
 /* Image logo*/
-.logo-img{
+.logoImg{
   height: 50px;
   width: auto;
   padding-top: 5px;
@@ -66,7 +66,7 @@
 }
 
 /* Menu logo   */
-.menu-logo{
+.menuLogo{
     font-family:fantasy;
     font-weight: bold;
     display: flex;
@@ -74,6 +74,6 @@
     transition: all 0.3s ease-in-out;
 }  
 
-.menu-logo:hover{
+.menuLogo:hover{
   transform: scale(1.2);
 }

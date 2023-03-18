@@ -1,19 +1,11 @@
 import 'src/components/customerAccount/css/NewBooking.css'
+
 import { useState } from 'react';
-
-export interface FormData {
-    cleanerName : string;
-    level : string;
-    date: string;
-    time : string;
-}
-
-interface INewBooking{
-    onAddNewBooking: (formData : FormData) => void
-}
+import { INewBooking, FormData } from 'src/components/customerAccount/interfaces';
 
 const NewBooking = (props: INewBooking) => {
 
+    //-----------------------------------------------------------------------
     const [formData, setFormData] = useState<FormData>({
     cleanerName : '',
     level : '',
@@ -23,12 +15,13 @@ const NewBooking = (props: INewBooking) => {
     const [isChecked, setIsChecked] = useState('');
  
 
+    //-----------------------------------------------------------------------
     const submitHandler = (event: React.FormEvent) => {
        event.preventDefault();
         
-        console.log('in submitHandler');
+/*         console.log('in submitHandler');
         console.log('formdata in submitHandler')
-        console.log(formData);
+        console.log(formData); */
         props.onAddNewBooking(formData); 
         setFormData({
             cleanerName : '',
@@ -39,6 +32,7 @@ const NewBooking = (props: INewBooking) => {
         setIsChecked('');    
     }
 
+    //-----------------------------------------------------------------------
     const changeHandler = (event : React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => { 
                
 /*         console.log('in changeHandler'); */
@@ -53,7 +47,8 @@ const NewBooking = (props: INewBooking) => {
         console.log(formData)  */
     }
 
-  
+
+    //-----------------------------------------------------------------------  
     return (
         <div className="form-wrapper">
             <div className="form-content">
@@ -114,7 +109,6 @@ const NewBooking = (props: INewBooking) => {
                                         checked={isChecked === 'Windows'}
                                         onChange={changeHandler}/>
                                 <label className='label-radio' htmlFor="windows">Windows</label>
-                            {/* </select> */}
 
                         </div>
                     </div>
@@ -124,13 +118,13 @@ const NewBooking = (props: INewBooking) => {
                         <label className='label' htmlFor="date">Select date:</label>
 
                         <div className='input-tab'>
-                            <input  id="date" 
+                             <input  id="date" 
                                     type="date" 
                                     name="date" 
                                     className="input-field" 
                                     value={formData.date}
                                     onChange={changeHandler}
-                                    required />
+                                    required /> 
                         </div>
                     </div>
 
@@ -140,15 +134,30 @@ const NewBooking = (props: INewBooking) => {
                         <label className='label' htmlFor="time">Select time:</label>
 
                         <div className='input-tab'>
-                            <input  id="time" 
+{/*                             <input  id="time" 
                                     type="time" 
                                     name="time"
                                     className="input-field" 
-                                    // pattern="([0-24]=[0-59])" 
+                                    pattern='[08-19].[00-59]'
                                     placeholder='--.--' 
                                     value={formData.time}
                                     onChange={changeHandler}
-                                    required />
+                                    required /> time*/}
+
+                            <select id="time" 
+                                    className="input-field"
+                                    name="time"
+                                    value={formData.time}
+                                    onChange={changeHandler}>
+                                <option value="" disabled></option>
+                                <option value="08-00">08-00</option>
+                                <option value="10-00">10-00</option>
+                                <option value="12-00">12-00</option>
+                                <option value="14-00">14-00</option>
+                                <option value="16-00">16-00</option>
+                                <option value="18-00">18-00</option>
+                                <option value="20-00">20-00</option>
+                            </select> 
                         </div>
                     </div>
                     <div>

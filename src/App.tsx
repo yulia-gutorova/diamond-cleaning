@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 
-import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 
 import HomePage        from './components/homePage/HomePage';
 import LoginPage       from './components/logInPage/LogInPage';
@@ -15,11 +15,14 @@ import Footer          from './components/common/components/Footer';
 
 function App() {
 
+ 
+  //-----------------------------------------------------------------------
   const [login, setLogin] = useState(false);
   const [loginText, setLoginText] = useState('Log in');
   const [load, setLoad] = useState('/login');
 
 
+  //-----------------------------------------------------------------------
   const loginButtonTextHandler = (login: boolean) => {
     console.log('loginButtonTestHandler in app.tsx');
     console.log('login');
@@ -47,6 +50,7 @@ function App() {
     }
   } */
 
+  //-----------------------------------------------------------------------
   const onLogOutClickHandler = () => {
     console.log('onLogOutClickHandler in app');
     setLogin(false);
@@ -54,6 +58,7 @@ function App() {
     setLoad('/login');
   }
 
+  //-----------------------------------------------------------------------
   const onScrollToElementClickHandler = (el: string) => {
     setLogin(false);
     setLoginText('Log in');
@@ -66,6 +71,7 @@ function App() {
     console.log('Selector');
     console.log(selector);
 
+    //-----------------------------------------------------------------------
     async function waitForElement(selector: string, timeout = 15000) {
       const start = Date.now();
 
@@ -82,8 +88,7 @@ function App() {
     waitForElement(selector);
   }  
 
-  
-
+  //-----------------------------------------------------------------------
   return (
     <div className="App">
       <BrowserRouter>

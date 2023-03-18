@@ -1,7 +1,6 @@
-.newsletter-section-wrapper{
+.newsletterSectionWrapper{
     height: 230px;
     width: 60%;
-
     text-align: center;
     margin: 20px auto;
     font-family: "terfens", sans-serif; 
@@ -10,17 +9,17 @@
     background-image: url('src/images/newsLetter.png');   
 }
 
-.newsletter-section-wrapper form{
+.newsletterSectionWrapper form{
 
     display: flex;
     justify-content: center;
 }
 
-.newsletter-section-wrapper h1{
+.newsletterSectionWrapper h1{
     padding-top: 20px;
 }
 
- .newsletter-section-wrapper button{
+ .newsletterSectionWrapper button{
     background-color: rgb(245, 177, 51);
     color: black;
     font-size: 16px;
@@ -33,12 +32,12 @@
     margin-bottom: 20px;
 }
 
-.newsletter-section-wrapper button:hover{
+.newsletterSectionWrapper button:hover{
     background-color: rgb(243, 125, 8);
     color:black;
 }
 
-.newsletter-section-wrapper form input{
+.newsletterSectionWrapper form input{
     width: 200px;
     height: 50px;
     max-width: 80%;

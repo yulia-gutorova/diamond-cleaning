@@ -1,9 +1,9 @@
-import 'src/components/homePage/css/NewsLetterSection.css'
+import classes from 'src/components/homePage/css/NewsLetterSection.module.css'
 
 
 const NewsLetter = () => {
     return(
-        <div className="newsletter-section-wrapper">
+        <div className={classes.newsletterSectionWrapper}>
             <h1>NewsLetter</h1>
             <p>You will be notified when somthing new will be appear.</p>
             <form >
