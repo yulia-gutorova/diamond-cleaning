@@ -1,9 +1,8 @@
-.contact-section-wrapper{
+.contactSectionWrapper{
     width: 90%;
     height: 200px;
     display: flex;
     flex-wrap: nowrap;
-    /* background-color: rgb(236, 237, 239); */
     margin: auto;
     display: flex;
     justify-content:space-between;
@@ -12,7 +11,7 @@
     background-image: url('src/images/contact-us.png');
 }
 
-.contact-title{
+.contactTitle{
     color: black;
     font-style: italic;
     font-weight: bold;
@@ -20,19 +19,18 @@
 }
 
 
-.contact-card{
+.contactCard{
     padding-top: 40px;
     width: 34%;
     text-align: center;
-    /* background: radial-gradient(rgb(188, 232, 247), rgb(116, 200, 223)); */
 }
-.contact-text{
+.contactText{
     text-shadow: 2px 2px white;
     font-size: 20px;
     font-weight: bold;
     transition: all 0.3s ease-in-out;
 }
-.contact-text:hover{
+.contactText:hover{
     font-size: 22px;
 }
 
@@ -40,7 +38,7 @@ i{
     height: 20px;
 }
 
-.vertical-line-1{
+.verticalLine1{
     border-left: 2px solid rgb(26, 154, 189);
     height: 100px;
     position: absolute;
@@ -48,7 +46,7 @@ i{
     margin-top: 50px;
 }
 
-.vertical-line-2{
+.verticalLine2{
     border-left: 2px solid rgb(26, 154, 189);
     height: 100px;
     position: absolute;

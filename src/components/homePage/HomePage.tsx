@@ -1,5 +1,3 @@
-import 'src/components/homePage/css/HomePage.css'
-
 import ContactUsSection from 'src/components/homePage/components/ContactUsSection'
 import HeaderSection    from 'src/components/homePage/components/HeaderSection'
 import ServiceSection   from 'src/components/homePage/components/ServiceSection'

@@ -1,58 +1,57 @@
-.how-section-wrapper{
+.howSectionWrapper{
     width: 90%;
     background-color: rgb(251, 249, 249);
     margin: 0 auto;
 }
 
-.how-section{
+.hoSection{
     padding-top: 20px; 
     padding-bottom: 30px;
 }
 
-.how-section-title{
+.howSectionTitle{
     display: flex;
     flex-direction: column;
-  
     align-items: flex-end;
 }
 
-.how-section-title h2{
+.howSectionTitle h2{
     color: rgb(9, 54, 137)
 
 }
 
-.offered-services-section-content{
+.offeredServicesSectionContent{
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap;
     margin-top: 50px;
 }
 
-.how-cards{
+.howCards{
     display: flex;
     flex-wrap: nowrap;
     margin-top: 50px;
     justify-content: space-between;
 }
 
-.how-card{
+.howCard{
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 20%;   
 }
 
-.how-card-content{
+.howCardContent{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.how-card-content p{
+.howCardContent p{
     padding: 10px;
 }
 
-.how-hr{
+.howHr{
     width: 40%;
     border-top: 5px orange solid;
     float: right;
@@ -75,11 +74,11 @@
     background-color: rgb(245, 177, 51);  
 }
 
-.how-card-arrow{
+.howCardArrow{
     margin-top: 100px;
 }
 
-.circle-btn{
+.circleBtn{
     border: none;
     background-color: rgb(251, 249, 249);
     cursor: pointer;

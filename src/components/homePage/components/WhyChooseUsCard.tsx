@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import 'src/components/homePage/css/WhyChooseUs.css'
+import classes from 'src/components/homePage/css/WhyChooseUs.module.css'
 
 import { IWhyChooseUsCard }    from 'src/components/homePage/interfaces'
 
@@ -9,17 +9,15 @@ const WhyChooseUsCard = (props : IWhyChooseUsCard) => {
 
 
 return (
-    <div className='choose-us-card' 
-
-    onMouseEnter={() => setDisplay(false)}
-    onMouseLeave={() => setDisplay(true)}>
-
+    <div className={classes.chooseUsCard}
+         onMouseEnter={() => setDisplay(false)}
+         onMouseLeave={() => setDisplay(true)}>
     <i className={props.icon}></i>
-    <div className="choose-us-content">
-       {display && <p className='choose-us-title'>{props.title}</p>}
+    <div className={classes.chooseUsContent}>
+       {display && <p className={classes.chooseUsTitle}>{props.title}</p>}
    </div>
-   <div className="choose-us-text">
-       <p className='choose-us-p'>{props.text}</p>
+   <div className={classes.chooseUsText}>
+       <p className={classes.chooseUsP}>{props.text}</p>
    </div>
 </div>
 )

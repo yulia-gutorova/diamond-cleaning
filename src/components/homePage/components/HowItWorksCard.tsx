@@ -1,4 +1,4 @@
-import 'src/components/homePage/css/HowItWorks.css'
+import classes from 'src/components/homePage/css/HowItWorks.module.css'
 
 import { useState }        from 'react';
 import { Link }            from 'react-router-dom';
@@ -23,21 +23,21 @@ const HowItWorksCard = (props: IHowItWorksCard) => {
     //-------------------------------------------------------------------
     return (
         <>
-            <div className='how-card' style={{ marginTop: (props.num === 1 || props.num === 3) ? 100 : 10 }}>
-                <div className="how-card-number">
+            <div className={classes.howCard} style={{ marginTop: (props.num === 1 || props.num === 3) ? 100 : 10 }}>
+                <div className={classes.howCardNumber}>
 
                     <Link to={"/login"} onClick={onScrollToTopHandler}>
-                        <button className='circle-btn'
+                        <button className={classes.circleBtn}
                             style={{ fontSize: info ? 32 : 20 }}
                             onMouseOver={() => setInfo(false)}
                             onMouseLeave={() => setInfo(true)}>
-                            <span className='circle'
+                            <span className={classes.circle}
                                 style={{ paddingTop: info ? 40 : 50 }}>
                                 {info ? props.num : props.circleText}</span></button></Link>
 
                 </div>
 
-                <div className="how-card-content">
+                <div className={classes.howCardContent}>
                     <h4>{props.hText}</h4>
                     <p>{props.pText}</p>
                 </div>

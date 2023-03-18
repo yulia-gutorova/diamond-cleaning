@@ -1,4 +1,4 @@
-.header-section-wrapper{
+.headerSectionWrapper{
     width: 90%;
     min-height: 500px;
     display: flex; 
@@ -9,50 +9,39 @@
     background-image: url('src/images//header-section.jpeg');   
 }
 
-.header-section-content-wrapper{
+.headerSectionContentWrapper{
     height: 200px;
     width: 30%;
     margin: 30px 20px 20px 100px;  
-    /* opacity: 0; */
-    /* transition: all 0.5s ease-in-out; */
-    /* animation: fadeIn 5s; */
     transition: all 0.8s ease-in-out;
 }
 
-/* .header-section-content-wrapper:hover{
-    text-shadow: 1px 1px white;
-} */
-
-/* .header-section-content-wrapper:hover{
-    opacity: 1;
-} */
-
-.header-section-title{
+.headerSectionTitle{
     font-size: 40px;
     animation: fadeIn 5s;
 }
 
-.header-section-title:hover{
+.headerSectionTitle:hover{
     text-shadow: 1px 1px white;
 }
 
-.header-section-text{
+.headerSectionText{
     line-height: 30px;
-    animation: fadeIn 10s;
+    animation: fadeIn 6s;
 }
 
-.header-section-welcome{
+.headerSectionWelcome{
     font-size: 15px;
     font-weight: bold;
     color: white
 }
 
-.header-section-button{
+.headerSectionButton{
 
     margin-top: 20px;
 }
 
-.header-section-button {
+.headerSectionButton {
     background-color: rgb(245, 177, 51);
     color: black;
     font-size: 16px;
@@ -64,7 +53,7 @@
     border-radius: 10px;
 }
     
-.header-section-button:hover{
+.headerSectionButton:hover{
     background-color: rgb(243, 125, 8);
     text-decoration: underline;
     color:black;

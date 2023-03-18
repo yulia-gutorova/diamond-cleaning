@@ -1,20 +1,20 @@
 import { useState } from 'react'
 import HowItWorksCard from './HowItWorksCard';
-import 'src/components/homePage/css/HowItWorks.css'
+import classes from 'src/components/homePage/css/HowItWorks.module.css'
 
 const HowItWorks = () => {
 
     const[info, setInfo]= useState(true);
  
     return (
-        <div className="how-section-wrapper">
-            <div className="how-section">
-                <div className='how-section-title'>
+        <div className={classes.howSectionWrapper}>
+            <div className={classes.howSection}>
+                <div className={classes.howSectionTitle}>
                     <h2>Work process</h2>
                     <h1>How it works</h1>
                 </div>
-                <hr className='how-hr' />
-                <div className="how-cards">
+                <hr className={classes.howHr}/>
+                <div className={classes.howCards}>
 
                     <HowItWorksCard
                             info={info}
@@ -24,7 +24,7 @@ const HowItWorks = () => {
                             pText={"Become our customer and get a goog deal."} 
                     ></HowItWorksCard>
 
-                    <div className='how-card-arrow'><i className="fa-solid fa-arrow-trend-up fa-2xl"></i></div>
+                    <div className={classes.howCardArrow}><i className="fa-solid fa-arrow-trend-up fa-2xl"></i></div>
 
                     <HowItWorksCard
                             info={info}
@@ -34,7 +34,7 @@ const HowItWorks = () => {
                             pText={"We're available every day of the week with cleans beginning as early as 8am."} 
                     ></HowItWorksCard>
 
-                    <div className='how-card-arrow'><i className="fa-solid fa-arrow-trend-down fa-2xl"></i></div>
+                    <div className={classes.howCardArrow}><i className="fa-solid fa-arrow-trend-down fa-2xl"></i></div>
 
                     <HowItWorksCard
                             info={info}
