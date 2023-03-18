@@ -1,4 +1,5 @@
 import 'src/components/cleanerAccount/css/PerformedCleanings.css'
+
 import { IPerformedCleanings } from 'src/components/cleanerAccount/interfaces'
 
 const PerformedCleanings = (props: IPerformedCleanings) => {
@@ -16,7 +17,5 @@ const PerformedCleanings = (props: IPerformedCleanings) => {
     </>
     )
 }
-
-// checked={copmlete}
 
 export default PerformedCleanings

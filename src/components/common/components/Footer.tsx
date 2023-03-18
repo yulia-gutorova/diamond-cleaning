@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom"
 
-import 'src/components/common/css/Footer.css'
+//import 'src/components/common/css/Footer.css'
+
+import classes from 'src/components/common/css/Footer.module.css'
 
 import Dimond from 'src/images/logo2.webp'
 
-
-interface IFooter {
-    onScrollToElementClickHandler : (el : string) => void;
-}
+import { IFooter } from "../interfaces"
 
 const Footer = (props: IFooter) => {
    
@@ -20,40 +19,40 @@ const Footer = (props: IFooter) => {
 
     //-------------------------------------------------------------------
     return (
-        <footer className='footer'>
-            <div className="footer-container">
-                <div className="footer-about">
-                    <div className="footer-logo">
-                        <img className='logo-img' src={Dimond}></img>
+        <footer className={classes.footer}>
+            <div className={classes.footerContainer}>
+                <div className={classes.footerAbout}>
+                    <div className={classes.footerLogo}>
+                        <img className={classes.logoImg} src={Dimond}></img>
                         <span>Diamond Clean</span>
                     </div>
-                    <p className='footer-about-text'>We are a professional cleaning company offering all types of cleaning services</p>
+                    <p className={classes.footerAboutText}>We are a professional cleaning company offering all types of cleaning services</p>
                 </div>
                 <div 
-                    className="vertical-line">
+                    className={classes.verticalLine}>
                 </div> 
-                <ul className="footer-list">
-                    <li className="list-title">Main menu</li>
-                    <Link to={"/"} style={{textDecoration: 'none'}}><li className="list" data-element='header-section-wrapper' onClick={scrollToElementClickHandler}>Home</li></Link> 
-                    <Link to={"/"} style={{textDecoration: 'none'}}><li className="list" data-element='contact-section-wrapper' onClick={scrollToElementClickHandler}>Contact</li></Link> 
-                    <Link to={"/"} style={{textDecoration: 'none'}}><li className="list" data-element='offered-services-section-wrapper' onClick={scrollToElementClickHandler}>Services</li></Link> 
-                    <Link to={"/"} style={{textDecoration: 'none'}}><li className="list" data-element='choose-us-section-wrapper' onClick={scrollToElementClickHandler}>Why choose us</li></Link> 
-                    <Link to={"/"} style={{textDecoration: 'none'}}><li className="list" data-element='how-section-wrapper' onClick={scrollToElementClickHandler}>How it works</li></Link> 
+                <ul className={classes.footerList}>
+                    <li className={`${classes.list } ${classes.listTitle}`}>Main menu</li>
+                    <Link to={"/"} style={{textDecoration: 'none'}}><li className={classes.list} data-element='header-section-wrapper' onClick={scrollToElementClickHandler}>Home</li></Link> 
+                    <Link to={"/"} style={{textDecoration: 'none'}}><li className={classes.list} data-element='contact-section-wrapper' onClick={scrollToElementClickHandler}>Contact</li></Link> 
+                    <Link to={"/"} style={{textDecoration: 'none'}}><li className={classes.list} data-element='offered-services-section-wrapper' onClick={scrollToElementClickHandler}>Services</li></Link> 
+                    <Link to={"/"} style={{textDecoration: 'none'}}><li className={classes.list} data-element='choose-us-section-wrapper' onClick={scrollToElementClickHandler}>Why choose us</li></Link> 
+                    <Link to={"/"} style={{textDecoration: 'none'}}><li className={classes.list} data-element='how-section-wrapper' onClick={scrollToElementClickHandler}>How it works</li></Link> 
 
                 </ul>
-                <ul className="footer-list">
-                    <li className="list-title">Address locations </li>
-                    <li className="list">Skarpnäck</li>
-                    <li className="list">Sätra</li>
-                    <li className="list">Årsta</li>
-                    <li className="list">Kista</li>
+                <ul className={classes.footerList}>
+                    <li className={`${classes.list } ${classes.listTitle}`}>Address locations </li>
+                    <li className={classes.list}>Skarpnäck</li>
+                    <li className={classes.list}>Sätra</li>
+                    <li className={classes.list}>Årsta</li>
+                    <li className={classes.list}>Kista</li>
                 </ul>
-                <ul className="footer-list">
-                    <li className="list-title">Follow us</li>
-                    <li className="list">Facebook</li>
-                    <li className="list">Linkedin</li>
-                    <li className="list">Instagramm</li>
-                    <li className="list">Twitter</li>
+                <ul className={classes.footerList}>
+                    <li className={`${classes.list } ${classes.listTitle}`}>Follow us</li>
+                    <li className={classes.list}>Facebook</li>
+                    <li className={classes.list}>Linkedin</li>
+                    <li className={classes.list}>Instagramm</li>
+                    <li className={classes.list}>Twitter</li>
                 </ul>
             </div>
         </footer>

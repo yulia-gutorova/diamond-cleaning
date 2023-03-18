@@ -1,13 +1,11 @@
+import classes from 'src/components/common/css/NavigationMenu.module.css'
+
 import { Link } from 'react-router-dom';
-import 'src/components/common/css/NavigationMenu.css'
+
 import Dimond from 'src/images/logo2.webp'
 
-interface INavigationMenu {
-        onScrollToElementClickHandler : (el : string) => void;
-        loginText : string;
-        login     : boolean;
-        load      : string;   
-}
+import { INavigationMenu } from 'src/components/common/interfaces';
+
 
 const NavigationMenu = (props : INavigationMenu) => {
 
@@ -28,23 +26,23 @@ const NavigationMenu = (props : INavigationMenu) => {
 
     //-------------------------------------------------------------------
         return (
-            <div className='navigation-menu-wrapper'>
-                <header className="navigation">
-                    <div className="menu">
-                        <div className="menu-logo">
-                            <img className='logo-img' src={Dimond}></img>
+            <div className={classes.navigationMenuWrapper}>
+                <header className={classes.navigation}>
+                    <div className={classes.menu}>
+                        <div className={classes.menuLogo}>
+                            <img className={classes.logoImg} src={Dimond}></img>
                             <span>Diamond Clean</span>
                         </div>
-                        <div className="menu-center">
-                        <Link to={"/"}><button className="menubtn" data-element='header-section-wrapper' onClick={scrollToElementClickHandler}>Home</button></Link>            
-                        <Link to={"/"}><button className="menubtn" data-element='contact-section-wrapper' onClick={scrollToElementClickHandler}>Contact</button></Link> 
-                        <Link to={"/"}><button className="menubtn" data-element='offered-services-section-wrapper' onClick={scrollToElementClickHandler}>Services</button></Link>
-                        <Link to= {"/"}><button className="menubtn" data-element='choose-us-section-wrapper' onClick={scrollToElementClickHandler}>Why choose us</button></Link>
-                        <Link to= {"/"}><button className="menubtn" data-element='how-section-wrapper' onClick={scrollToElementClickHandler}>How it works</button></Link>
+                            <div className={classes.menuCenter}>
+                        <Link to={"/"}><button className={classes.menubtn} data-element='header-section-wrapper' onClick={scrollToElementClickHandler}>Home</button></Link>            
+                        <Link to={"/"}><button className={classes.menubtn}  data-element='contact-section-wrapper' onClick={scrollToElementClickHandler}>Contact</button></Link> 
+                        <Link to={"/"}><button className={classes.menubtn}  data-element='offered-services-section-wrapper' onClick={scrollToElementClickHandler}>Services</button></Link>
+                        <Link to= {"/"}><button className={classes.menubtn}  data-element='choose-us-section-wrapper' onClick={scrollToElementClickHandler}>Why choose us</button></Link>
+                        <Link to= {"/"}><button className={classes.menubtn}  data-element='how-section-wrapper' onClick={scrollToElementClickHandler}>How it works</button></Link>
                     </div>
                     
-                    <div className="menu-right">
-                        <Link to= {props.load} onClick={onScrollToTopHandler}><button className="menubtn loginbtn">{props.loginText + '!'}</button></Link>
+                    <div className={classes.menuRight}>
+                        <Link to= {props.load} onClick={onScrollToTopHandler}><button className={`${classes.menubtn} ${classes.loginbtn}`}>{props.loginText + '!'}</button></Link>
                     </div>
                     </div>
                 </header>

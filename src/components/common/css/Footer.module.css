@@ -1,4 +1,4 @@
-.footer-container{
+.footerContainer{
     margin-top: 50px;
     display: flex;
     justify-content: space-around;
@@ -6,19 +6,19 @@
     height: 230px;
 }
 
-.footer-list{
+.footerList{
     list-style: none;
     text-decoration: none;
 }
 
-.footer-list .list{
+.footerList .list{
     color: black;
     padding: 5px 10px 5px 10px;
     font-size: 17px;
     margin-bottom: 0px;
 }
 
-.footer-list li.list:hover{
+.footerList li.list:hover{
     color: white;
 }
 
@@ -27,20 +27,20 @@
     margin-bottom: 0px;
 } */
 
-.footer-list li.list-title{
+.footerList li.list-title{
     font-weight: bold;
     font-size: 20px;
     margin-bottom: 10px;
     text-decoration: underline;
 }
 
-.footer-about{
+.footerAbout{
     padding-top: 10px;
     width: 15%;
     text-align: center;
 }
 
-.footer-logo{
+.footerLogo{
     font-family:fantasy;
     font-weight: bold;
     display: flex;
@@ -48,20 +48,27 @@
     transition: all 0.3s ease-in-out;
 }
 
-.footer-logo:hover{
+.footerLogo:hover{
     transform: scale(1.1);
 }
 
-.footer-about-text{
+.logoImg{
+    height: 50px;
+    width: auto;
+    padding-top: 5px;
+    
+  }
+
+.footerAboutText{
   line-height: 20px;
   transition: all 0.5s ease-in-out;
 }
 
-.footer-about-text:hover{
+.footerAboutText:hover{
     color:white;
 } 
 
-.vertical-line{
+.verticalLine{
     border-left: 2px solid rgb(108, 106, 106);
     height: 120px;
     position: absolute;

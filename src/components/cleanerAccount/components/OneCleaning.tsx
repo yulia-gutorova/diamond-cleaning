@@ -1,5 +1,7 @@
-import { IOneCleaning } from 'src/components/cleanerAccount/interfaces'
 import './OneCleaning.css'
+
+import { IOneCleaning } from 'src/components/cleanerAccount/interfaces'
+
 
 const OneCleaning = (props: IOneCleaning) => {
 

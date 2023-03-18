@@ -8,6 +8,7 @@ import 'src/components/cleanerAccount/css/CleanerAccount.css'
 
 import PerformedCleanings from 'src/components/cleanerAccount/components/PerfopmedCleanings';
 import PlannedCleanings from 'src/components/cleanerAccount/components/PlannedCleanings';
+
 import { fetchData, updateData } from './api';
 
 
@@ -17,11 +18,12 @@ const CLeanerAccount = () => {
     let data = name;
     /*     console.log('data in customer account')
         console.log(name); */
-
+        
+    //-----------------------------------------------------------------------
     const [bookings, setBookings] = useState<Booking[]>([]);
     const [update, setUpdate] = useState('initial');
 
-
+    //-----------------------------------------------------------------------
     useEffect(() => {
         (
             async function () {
@@ -35,6 +37,7 @@ const CLeanerAccount = () => {
     /*     console.log('Bookings1');
         console.log(bookings); */
 
+    //-----------------------------------------------------------------------
     const onPerformedTaskHandler = (id: string) => {
         /*         console.log('inside onPerformedTaskHandler in cleaner account');
                 console.log('Id:');
@@ -81,6 +84,7 @@ const CLeanerAccount = () => {
         setUpdate('updateData');
     }
 
+    //-----------------------------------------------------------------------
     const plannedCleanings = bookings.filter(booking => (booking.cleanerName === data && booking.status === false)).map((booking) => (
         <PlannedCleanings
             key={booking._id}
@@ -93,6 +97,7 @@ const CLeanerAccount = () => {
             onPerformedTaskHandler={() => onPerformedTaskHandler(booking._id)}></PlannedCleanings>
     ))
 
+    //-----------------------------------------------------------------------
     const performedCleanings = bookings.filter(booking => (booking.cleanerName === data && booking.status === true)).map((booking) => (
         <PerformedCleanings
             key={booking._id}
@@ -109,6 +114,7 @@ const CLeanerAccount = () => {
         console.log('Performed cleanings:');
         console.log(performedCleanings); */
 
+    //-----------------------------------------------------------------------
     return (<>
         <div className="cleaner-account-wrapper">
             <div className="cleaner-account-content">
