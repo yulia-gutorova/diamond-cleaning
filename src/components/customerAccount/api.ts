@@ -1,6 +1,8 @@
+//-----------------------------------------------------------------
 export const fetchData = async() => {
+    const baseURL :string  = process.env.REACT_APP_BASE_URL as string;
     try {
-        const resp = await fetch('http://localhost:5001/bookings')
+        const resp = await fetch(`${baseURL}bookings`)
         const data = await resp.json();     
         return data; 
     }
@@ -10,70 +12,63 @@ export const fetchData = async() => {
 }
 
 
-
+//-----------------------------------------------------------------
 export const addData = async (data: string, formData : any) => {
-
-    /*         console.log('inside addData in customer account');
-            console.log('FormData in add Data in customer account');
-            console.log(formData); */
                  
-            let newBooking = {
-                customerName : data,
-                cleanerName : formData.cleanerName,
-                level : formData.level,
-                date : formData.date,
-                time : formData.time,
-                status: false
-            } 
-    
-    /*         console.log('inside await create data in customer account');
-            console.log('New booking');
-            console.log(newBooking); */
-    
-             try
+    let newBooking = {
+        customerName : data,
+        cleanerName : formData.cleanerName,
+        level : formData.level,
+        date : formData.date,
+        time : formData.time,
+        status: false
+    } 
+
+    const baseURL :string  = process.env.REACT_APP_BASE_URL as string;
+
+        try
+    {
+        const res = await fetch(`${baseURL}bookings`, 
+        {
+            method: 'POST',
+            body: JSON.stringify(newBooking),
+            headers: 
             {
-                const res = await fetch('http://localhost:5001/bookings', 
-                {
-                    method: 'POST',
-                    body: JSON.stringify(newBooking),
-                    headers: 
-                    {
-                        'Content-Type': 'application/json',
-                    }
-                })    
+                'Content-Type': 'application/json',
             }
-            catch(error) 
-            {
-              console.log(error);     
-            } 
-    
-            //fetchData();
-            //setUpdate('addData')
-        }
+        })    
+    }
+    catch(error) 
+    {
+        console.log(error);     
+    } 
+}
 
-
+//-----------------------------------------------------------------
 export const deleteData = async(id: string) => {
-    console.log('inside deleteData in customer account');
+
+    const baseURL :string  = process.env.REACT_APP_BASE_URL as string;
 
     try {
-        const resp = await fetch('http://localhost:5001/bookings' + '/' +id,
+        const resp = await fetch(`${baseURL}bookings/${id}`,
         {
             method: 'DELETE', 
         })
     }
     catch (error) {
         console.log(error);
-    }
-    //fetchData();   
+    }  
 }
 
+//-----------------------------------------------------------------
 export const deleteAllData = async(checkedBookings : string[]) => {
-    console.log('inside deleteAllData in customer account');
+
+    const baseURL :string  = process.env.REACT_APP_BASE_URL as string;
 
     for(let id of checkedBookings){
 
         try {
-            const resp = await fetch('http://localhost:5001/bookings' + '/' +id,
+            const resp = await fetch(`${baseURL}bookings/${id}`,
             {
                 method: 'DELETE', 
             })
@@ -82,6 +77,4 @@ export const deleteAllData = async(checkedBookings : string[]) => {
             console.log(error);
         }
     }
-    //fetchData();
-    //setUpdate('deleteAllData')
 }

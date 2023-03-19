@@ -7,7 +7,7 @@ const HowItWorks = () => {
     const[info, setInfo]= useState(true);
  
     return (
-        <div className={classes.howSectionWrapper}>
+        <div id='howSectionWrapper' className={classes.howSectionWrapper}>
             <div className={classes.howSection}>
                 <div className={classes.howSectionTitle}>
                     <h2>Work process</h2>

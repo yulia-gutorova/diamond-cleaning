@@ -1,6 +1,6 @@
 *{
     box-sizing: border-box;
-    
+    font-family: "terfens"
 }
   
 /* header */
@@ -18,8 +18,7 @@
 .menu{
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  
+  justify-content: space-around; 
 } 
   
 /* menu Buttons */
@@ -52,7 +51,6 @@
 /* Menu button hover  */
 .menubtn:hover{
   background-color: rgb(119, 194, 8);
-  /* rgb(119, 194, 8); */
   font-size: 18px;
   color:white;
 } 
@@ -61,8 +59,7 @@
 .logoImg{
   height: 50px;
   width: auto;
-  padding-top: 5px;
-  
+  padding-top: 5px; 
 }
 
 /* Menu logo   */

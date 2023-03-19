@@ -4,8 +4,8 @@ import Member from 'src/models/Member';
 
 import LogInForm from 'src/components/logInPage/components/LogInForm'
 
-import { ILogInPage } from './interfaces';
-import { fetchData } from './api';
+import { ILogInPage } from 'src/components/logInPage/interfaces';
+import { fetchData } from 'src/components/logInPage/api';
 
 
 const LogInPage = (props: ILogInPage) => {

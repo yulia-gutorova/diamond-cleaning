@@ -31,14 +31,14 @@ const NavigationMenu = (props : INavigationMenu) => {
                     <div className={classes.menu}>
                         <div className={classes.menuLogo}>
                             <img className={classes.logoImg} src={Dimond}></img>
-                            <span>Diamond Clean</span>
+                            <span style={{fontFamily:'fantasy'}}>Diamond Clean</span>
                         </div>
                             <div className={classes.menuCenter}>
-                        <Link to={"/"}><button className={classes.menubtn} data-element='header-section-wrapper' onClick={scrollToElementClickHandler}>Home</button></Link>            
-                        <Link to={"/"}><button className={classes.menubtn}  data-element='contact-section-wrapper' onClick={scrollToElementClickHandler}>Contact</button></Link> 
-                        <Link to={"/"}><button className={classes.menubtn}  data-element='offered-services-section-wrapper' onClick={scrollToElementClickHandler}>Services</button></Link>
-                        <Link to= {"/"}><button className={classes.menubtn}  data-element='choose-us-section-wrapper' onClick={scrollToElementClickHandler}>Why choose us</button></Link>
-                        <Link to= {"/"}><button className={classes.menubtn}  data-element='how-section-wrapper' onClick={scrollToElementClickHandler}>How it works</button></Link>
+                        <Link to={"/"}><button className={classes.menubtn} data-element='headerSectionWrapper' onClick={scrollToElementClickHandler}>Home</button></Link>            
+                        <Link to={"/"}><button className={classes.menubtn}  data-element='contactSectionWrapper' onClick={scrollToElementClickHandler}>Contact</button></Link> 
+                        <Link to={"/"}><button className={classes.menubtn}  data-element='offeredServicesSectionWrapper' onClick={scrollToElementClickHandler}>Services</button></Link>
+                        <Link to= {"/"}><button className={classes.menubtn}  data-element='chooseUsSectionWrapper' onClick={scrollToElementClickHandler}>Why choose us</button></Link>
+                        <Link to= {"/"}><button className={classes.menubtn}  data-element='howSectionWrapper' onClick={scrollToElementClickHandler}>How it works</button></Link>
                     </div>
                     
                     <div className={classes.menuRight}>

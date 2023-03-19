@@ -1,3 +1,8 @@
+*{
+    box-sizing: border-box;
+    font-family: "terfens"
+}
+
 .footerContainer{
     margin-top: 50px;
     display: flex;
@@ -11,24 +16,19 @@
     text-decoration: none;
 }
 
-.footerList .list{
+.list{
     color: black;
     padding: 5px 10px 5px 10px;
-    font-size: 17px;
+    font-size: 16px;
     margin-bottom: 0px;
 }
 
-.footerList li.list:hover{
+.footerList .list:hover{
     color: white;
 }
 
-/* .footer-list li{
-    font-size: 17px;
-    margin-bottom: 0px;
-} */
+.listTitle{
 
-.footerList li.list-title{
-    font-weight: bold;
     font-size: 20px;
     margin-bottom: 10px;
     text-decoration: underline;
@@ -49,15 +49,14 @@
 }
 
 .footerLogo:hover{
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 .logoImg{
     height: 50px;
     width: auto;
-    padding-top: 5px;
-    
-  }
+    padding-top: 5px;    
+}
 
 .footerAboutText{
   line-height: 20px;

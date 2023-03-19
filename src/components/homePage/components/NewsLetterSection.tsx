@@ -3,7 +3,7 @@ import classes from 'src/components/homePage/css/NewsLetterSection.module.css'
 
 const NewsLetter = () => {
     return(
-        <div className={classes.newsletterSectionWrapper}>
+        <div id='newsletterSectionWrapper' className={classes.newsletterSectionWrapper}>
             <h1>NewsLetter</h1>
             <p>You will be notified when somthing new will be appear.</p>
             <form >

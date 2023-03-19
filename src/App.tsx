@@ -67,7 +67,7 @@ function App() {
     console.log('El');
     console.log(el);
 
-    let selector: string = '.' + el;
+    let selector: string = '#' + el;
     console.log('Selector');
     console.log(selector);
 

@@ -1,5 +1,9 @@
-.customer-account-wrapper{
-    
+*{
+    box-sizing: border-box;
+    font-family: "terfens"
+}
+
+.customer-account-wrapper{  
     margin-top: 50px;
     min-height: 500px;
 }

@@ -8,7 +8,7 @@ const ChooseUsSection = () => {
     const [display, setDisplay] = useState(true);
 
     return (
-        <div className={classes.chooseUsSectionWrapper}>
+        <div id='chooseUsSectionWrapper' className={classes.chooseUsSectionWrapper}>
 
             <WhyChooseUsCard
              display={display}
