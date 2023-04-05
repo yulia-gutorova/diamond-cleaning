@@ -46,53 +46,13 @@ const LogInPage = (props: ILogInPage) => {
     )() 
   }, []); 
 
-/*   console.log('booking1');
-  console.log(members); */
-
- /*  const onSubmitHandler = (name :string) => {
-    console.log('In onSubmitHandler');
-    console.log(name);
-    console.log('booking2')
-    console.log(members);
-
-    const filtered = members.filter((value) => value.name === name);
-
-    if (filtered.length !== 0)
-    {
-      setText(filtered[0].name);
-      setDisplay(false)
-
-      if (filtered[0].isCustomer === true)
-      {
-          console.log('filtered[0].isCustomer')
-          console.log(filtered[0].isCustomer)
-          setIsCustomer(true)
-      };
-
-      if (filtered[0].isCustomer === false)
-      {
-        console.log('filtered[0].isCustomer')
-        console.log(filtered[0].isCustomer)
-        setIsCustomer(false)
-      }; 
-    
-    };
-
-    if (filtered.length === 0)
-    {
-      setText('Not exist');
-      setDisplay(true)
-    };
-  } */
 
   //-------------------------------------------------------------------
   const onSubmitHandler = (name :string) => {  
     const filtered = members.filter((value) => value.name === name);
-/*     console.log('Filtered')
-    console.log(filtered);  */
+
     if (filtered.length !== 0)
     {
-      //console.log('inside filtered.length !== 0'); 
       setText(name);
       setDisplay(false);
       setIsCustomer(filtered[0].isCustomer);  
@@ -108,9 +68,6 @@ const LogInPage = (props: ILogInPage) => {
 
   //-------------------------------------------------------------------
   props.loginButtonTextHandler(login);
-/* 
-  console.log('isCustomer');
-  console.log(isCustomer);   */
   
   //-------------------------------------------------------------------
   return (

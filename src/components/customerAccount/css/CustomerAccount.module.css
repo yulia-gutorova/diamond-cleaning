@@ -3,17 +3,17 @@
     font-family: "terfens"
 }
 
-.customer-account-wrapper{  
+.customerAccountWrapper{  
     margin-top: 50px;
     min-height: 500px;
 }
 
-.customer-account-content{
+.customerAccountContent{
     width: 80%;
     margin: auto;
 }
 
-.customer-background-image{
+.customerBackgroundImage{
     height: 300px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -21,7 +21,7 @@
     filter: blur(0px); 
 }
 
-.customer-account-title{
+.customerAccountTitle{
     background-color: rgba(220, 219, 219, 0.008); 
     /* border: 3px solid rgb(169, 218, 96); */
     border: none;
@@ -35,15 +35,15 @@
     text-align: center;
 }
 
-.customer-account-title{
+.customerAccountTitle{
     text-align: center;
 }
 
-.customer-list-of-bookings{
+.customerListOfBookings{
     text-align: center;
 }
 
-.customer-table {
+.customerTable {
     width:  100%;
     border: 1px solid black;
     border-collapse: collapse;
@@ -52,14 +52,14 @@
     font-size: 20px;
 }
 
-td{
+.customerTable td{
     width: 10%;
     height: 40px;
     border: 1px solid black;
     border-collapse: collapse; 
 }
 
-.customer-perform-bookings-button{
+.customerPerformBookingsButton{
     background-color: rgb(245, 177, 51);
     color: black;
     font-size: 16px;
@@ -71,12 +71,12 @@ td{
     width: 300px;
 }
 
-.customer-perform-bookings-button:hover{
+.customerPerformBookingsButton:hover{
     background-color: rgb(243, 125, 8);
     text-decoration: underline;
     color:black;
 }
 
-.customer-list-of-bookings h3{
+.customerListOfBookings h3{
     color: orangered;
 }

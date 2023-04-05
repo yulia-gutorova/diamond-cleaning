@@ -42,7 +42,7 @@ const NavigationMenu = (props : INavigationMenu) => {
                     </div>
                     
                     <div className={classes.menuRight}>
-                        <Link to= {props.load} onClick={onScrollToTopHandler}><button className={`${classes.menubtn} ${classes.loginbtn}`}>{props.loginText + '!'}</button></Link>
+                        <Link to= {props.load} onClick={onScrollToTopHandler}><button className={`${classes.menubtn} ${classes.loginbtn}`}>{props.loginText}</button></Link>
                     </div>
                     </div>
                 </header>

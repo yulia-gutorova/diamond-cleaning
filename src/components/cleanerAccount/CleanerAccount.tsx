@@ -32,7 +32,7 @@ const CLeanerAccount = () => {
             }
         )()
         setUpdate('initial');
-    }, []);
+    }, [update]);
 
     /*     console.log('Bookings1');
         console.log(bookings); */
