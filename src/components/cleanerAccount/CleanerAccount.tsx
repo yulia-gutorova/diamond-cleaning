@@ -1,23 +1,21 @@
+import classes from 'src/components/cleanerAccount/css/CleanerAccount.module.css'
+
 import { useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import Booking from 'src/models/Booking';
 
-
-import 'src/components/cleanerAccount/css/CleanerAccount.css'
-
 import PerformedCleanings from 'src/components/cleanerAccount/components/PerfopmedCleanings';
-import PlannedCleanings from 'src/components/cleanerAccount/components/PlannedCleanings';
+import PlannedCleanings   from 'src/components/cleanerAccount/components/PlannedCleanings';
 
 import { fetchData, updateData } from './api';
+import { ICleanerPage } from './interfaces';
 
 
-const CLeanerAccount = () => {
+const CLeanerAccount = (props : ICleanerPage) => {
 
     let { name } = useParams();
     let data = name;
-    /*     console.log('data in customer account')
-        console.log(name); */
         
     //-----------------------------------------------------------------------
     const [bookings, setBookings] = useState<Booking[]>([]);
@@ -34,55 +32,15 @@ const CLeanerAccount = () => {
         setUpdate('initial');
     }, [update]);
 
-    /*     console.log('Bookings1');
-        console.log(bookings); */
-
     //-----------------------------------------------------------------------
     const onPerformedTaskHandler = (id: string) => {
-        /*         console.log('inside onPerformedTaskHandler in cleaner account');
-                console.log('Id:');
-                console.log(id); */
-        setBookings(bookings.map(booking => (booking._id === id ? { ...booking, status: true } : booking)));
-        /*         console.log('Bookings done:');
-                console.log(bookings); */
-
-        /*         const updateData = async (id: string) => {
-        
-                    console.log('inside updateData in cleaner account');
-                    console.log('Id');
-                    console.log(id); 
-                         
-                    let newBooking= {
-                        status: true
-                    } 
-            
-                     console.log('inside await update data in cleaner account');
-                    console.log('New booking');
-                    console.log(newBooking); 
-            
-                     try
-                    {
-                        const res = await fetch('http://localhost:5001/bookings' + '/' + id, 
-                        {
-                            method: 'PATCH',
-                            body: JSON.stringify(newBooking),
-                            headers: 
-                            {
-                                'Content-Type': 'application/json',
-                            }
-                        })    
-                    }
-                    catch(error) 
-                    {
-                      console.log(error);     
-                    } 
-                    //fetchData();
-                    //setUpdate('updateData');
-                } */
-
+        setBookings(bookings.map(booking => (booking._id === id ? { ...booking, status: true } : booking)));       
         updateData(id);
         setUpdate('updateData');
     }
+
+    //-----------------------------------------------------------------------
+    props.loginButtonTextHandler(true); 
 
     //-----------------------------------------------------------------------
     const plannedCleanings = bookings.filter(booking => (booking.cleanerName === data && booking.status === false)).map((booking) => (
@@ -109,26 +67,22 @@ const CLeanerAccount = () => {
             date={booking.date.toString()}></PerformedCleanings>
     ))
 
-    /*     console.log('Planned cleanings:');
-        console.log(plannedCleanings);
-        console.log('Performed cleanings:');
-        console.log(performedCleanings); */
 
     //-----------------------------------------------------------------------
     return (<>
-        <div className="cleaner-account-wrapper">
-            <div className="cleaner-account-content">
-                <div className="cleaner-background-image"></div>
-                <div className='cleaner-account-title'>
+        <div className={classes.cleanerAccountWrapper}>
+            <div className={classes.cleanerAccountContent}>
+                <div className={classes.cleanerBackgroundImage}></div>
+                <div className={classes.cleanerAccountTitle}>
                     <h1>Hello, {data}!!!</h1>
                     <h2>Your cleanings:</h2>
                 </div>
 
 
-                <div className='cleaner-planned-cleanings'>
+                <div className={classes.cleanerPlannedCleanings}>
                     <h2>Planned cleanings:</h2>
                     {plannedCleanings.length === 0 && <h3>You don't have any planned cleanings</h3>}
-                    <table className='cleaner-table'>
+                    <table className={classes.cleanerTable}>
                         <tbody>
                             {plannedCleanings}
                         </tbody>
@@ -136,10 +90,10 @@ const CLeanerAccount = () => {
                 </div>
 
 
-                <div className='cleaner-performed-cleanings'>
+                <div className={classes.cleanerPerformedCleanings}>
                     <h2>Performed cleanings:</h2>
                     {performedCleanings.length === 0 && <h3>You don't have any performed cleanings</h3>}
-                    <table className='cleaner-table'>
+                    <table className={classes.cleanerTable}>
                         <tbody>
                             {performedCleanings}
                         </tbody>

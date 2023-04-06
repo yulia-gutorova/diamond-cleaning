@@ -1,20 +1,20 @@
 
-.cleaner-account-wrapper{
+.cleanerAccountWrapper{
     
     margin-top: 50px;
     min-height: 500px;
 }
 
-.cleaner-account-content{
+.cleanerAccountContent{
     width: 80%;
     margin: auto;
 }
 
-.cleaner-account-content h3{
+.cleanerAccountContent h3{
     color: orangered;
 }
 
-.cleaner-background-image{
+.cleanerBackgroundImage{
     height: 300px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -22,7 +22,7 @@
     filter: blur(0px); 
 }
 
-.cleaner-account-title{
+.cleanerAccountTitle{
     background-color: rgba(220, 219, 219, 0.008); 
     /* border: 3px solid rgb(169, 218, 96); */
     border: none;
@@ -36,15 +36,13 @@
     text-align: center;
 }
 
-.cleaner-account-title{
+
+
+.cleanerPlannedCleanings, .cleanerPerformedCleanings {
     text-align: center;
 }
 
-.cleaner-planned-cleanings, .cleaner-performed-cleanings {
-    text-align: center;
-}
-
-.cleaner-table {
+.cleanerTable {
     width:  100%;
     border: 1px solid black;
     border-collapse: collapse;
@@ -53,9 +51,9 @@
     font-size: 20px;
 }
 
-td{
+/* td{
     width: 20%;
     height: 40px;
     border: 1px solid black;
     border-collapse: collapse; 
-}
+} */

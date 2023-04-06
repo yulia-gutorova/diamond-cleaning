@@ -3,6 +3,7 @@ import classes from 'src/components/homePage/css/HeaderSection.module.css'
 
 const HeaderSection = () => {
 
+    //-----------------------------------------------------------------------
     return (
         <div id='headerSectionWrapper' className={classes.headerSectionWrapper}>
             <div className={classes.headerSectionContentWrapper}>

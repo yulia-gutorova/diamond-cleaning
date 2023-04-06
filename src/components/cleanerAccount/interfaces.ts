@@ -24,4 +24,8 @@ export interface IPlannedCleanings {
     date         : string
     onPerformedTaskHandler: (id:string) => void
 
-} 
+}
+
+export interface ICleanerPage {
+    loginButtonTextHandler : (login: boolean) => void
+}

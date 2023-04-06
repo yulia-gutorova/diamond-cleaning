@@ -18,24 +18,6 @@ const LogInPage = (props: ILogInPage) => {
   const [login, setLogin] = useState(false);
      
   //-------------------------------------------------------------------
-/*   const fetchData =  () => {
-    try
-    {
-        fetch('http://localhost:5001/members')
-        .then(res => res.json())
-        .then((data) => {
-          console.log(data);  
-          setMembers(data); 
-          console.log(members);   
-        })                
-    }    
-    catch(error)
-    {
-        console.log(error);
-    }   
-  } */
-   
-  //-------------------------------------------------------------------
   useEffect(() => {
     (
       async function() 

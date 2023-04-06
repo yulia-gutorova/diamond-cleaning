@@ -8,10 +8,12 @@ import Booking           from 'src/models/Booking';
 import PlannedBookings   from 'src/components/customerAccount/components/PlannedBookings';
 import PerformedBookings from 'src/components/customerAccount/components/PerformedBookings';
 import NewBooking        from 'src/components/customerAccount/components/NewBooking';
+
 import { addData, deleteAllData, deleteData, fetchData } from './api';
+import { ICustomerPage } from './interfaces';
 
 
-const CustomerAccount = () => {
+const CustomerAccount = (props: ICustomerPage) => {
 
     let {name} = useParams();
     let data = name!;
@@ -44,8 +46,6 @@ const CustomerAccount = () => {
 
     //-----------------------------------------------------------------------
     const onCheckboxHandler = (id : string) => {
-        console.log('inside onCheskboxHandler in customer account');
-        console.log(id);
         setCheckedBookings
         (
           (checkedBookings) => {return [...checkedBookings, id]}       
@@ -55,7 +55,6 @@ const CustomerAccount = () => {
 
     //-----------------------------------------------------------------------
     const onDeleteCheckedBookings = async () => {
-
         let res : any = await deleteAllData(checkedBookings);
         setUpdate('deleteAllData')
     }
@@ -82,6 +81,9 @@ const CustomerAccount = () => {
         } 
         setUpdate('addData');                                                 
     }
+
+    //-----------------------------------------------------------------------
+    props.loginButtonTextHandler(true);
 
     //-----------------------------------------------------------------------
     const plannedBookings = bookings.filter(booking => (booking.customerName === data && booking.status === false)).map((booking) => (

@@ -2,6 +2,8 @@ import classes from 'src/components/homePage/css/NewsLetterSection.module.css'
 
 
 const NewsLetter = () => {
+    
+    //-----------------------------------------------------------------------
     return(
         <div id='newsletterSectionWrapper' className={classes.newsletterSectionWrapper}>
             <h1>NewsLetter</h1>

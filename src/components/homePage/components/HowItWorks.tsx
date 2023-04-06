@@ -4,8 +4,10 @@ import classes from 'src/components/homePage/css/HowItWorks.module.css'
 
 const HowItWorks = () => {
 
+    //-----------------------------------------------------------------------
     const[info, setInfo]= useState(true);
  
+    //-----------------------------------------------------------------------
     return (
         <div id='howSectionWrapper' className={classes.howSectionWrapper}>
             <div className={classes.howSection}>

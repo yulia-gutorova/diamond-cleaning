@@ -6,19 +6,14 @@ import { IHowItWorksCard } from '../interfaces';
 
 const HowItWorksCard = (props: IHowItWorksCard) => {
 
+    //-----------------------------------------------------------------------
     const [info, setInfo] = useState(true);
 
     let el = document.querySelector('.how-card');
     el?.classList.add('how-card' + props.num);
 
     //-------------------------------------------------------------------
-    const onScrollToTopHandler = () => {
-        window.scroll({
-            top: 0,
-            left: 0,
-            behavior: "smooth"
-        });
-    }
+    const onScrollToTopHandler = () => {window.scroll({top: 0, left: 0, behavior: "smooth"});}
 
     //-------------------------------------------------------------------
     return (

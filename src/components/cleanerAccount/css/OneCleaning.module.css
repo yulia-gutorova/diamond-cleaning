@@ -1,8 +1,11 @@
-li{
-    text-decoration: none;
-  }
-      
-  .perform-bookings-button {
+.tableRow td{
+    width: 20%;
+    height: 40px;
+    border: 1px solid black;
+    border-collapse: collapse; 
+} 
+
+.plannedBookingsButton {
     background-color: rgb(245, 177, 51);
     color: black;
     font-size: 16px;
@@ -13,10 +16,10 @@ li{
     height: 30px;
     border-radius: 10px;
   }
-          
-       
-  .perform-bookings-button:hover{
+    
+ 
+.plannedBookingsButton:hover{
     background-color: rgb(243, 125, 8);
     text-decoration: underline;
     color:black;
-  }
+}

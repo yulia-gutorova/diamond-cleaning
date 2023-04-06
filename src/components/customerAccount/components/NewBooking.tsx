@@ -30,7 +30,6 @@ const NewBooking = (props: INewBooking) => {
 
     //-----------------------------------------------------------------------
     const changeHandler = (event : React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => { 
-
         const {name} = event.target;
         if (name === 'level')setIsChecked(event.target.value); 
         setFormData({...formData, [name]: event.target.value});

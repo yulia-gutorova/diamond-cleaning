@@ -30,3 +30,7 @@ export interface FormData {
 export interface INewBooking{
     onAddNewBooking: (formData : FormData) => void
 }
+
+export interface ICustomerPage {
+    loginButtonTextHandler : (login: boolean) => void
+}

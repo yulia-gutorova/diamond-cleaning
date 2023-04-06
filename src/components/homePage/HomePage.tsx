@@ -11,7 +11,7 @@ import { IHomePage }    from './interfaces'
 const HomePage = (props: IHomePage) => {
 
     //-----------------------------------------------------------------------
-    props.onLogOutClickHandler()
+    props.loginButtonTextHandler(false)
 
     //-----------------------------------------------------------------------
     return (
