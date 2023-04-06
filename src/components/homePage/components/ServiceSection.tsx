@@ -44,8 +44,9 @@ const ServiceSection = () => {
         }
     ]
 
+    //-----------------------------------------------------------------------
     return (
-        <section className={classes.offeredServicesSectionWrapper}>
+        <section id='offeredServicesSectionWrapper' className={classes.offeredServicesSectionWrapper}>
             <div className={classes.offeredServicesSection}>
                 <div className={classes.offeredServicesSectionTitle}>
                     <h2>What we do</h2>

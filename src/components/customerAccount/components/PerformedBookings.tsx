@@ -1,4 +1,4 @@
-import 'src/components/customerAccount/css/PerformedBookings.css'
+import classes from 'src/components/customerAccount/css/PerformedBooking.module.css'
 import { IPerformedBookings } from 'src/components/customerAccount/interfaces';
 
 
@@ -18,7 +18,7 @@ const PerformedBookings = (props: IPerformedBookings) => {
     //-----------------------------------------------------------------------
     return(
         <>
-        <tr>
+        <tr className='tableRow'>
             <td><li>
                  <input type='checkbox' 
                         onChange={onCheckboxHandler}
@@ -31,7 +31,7 @@ const PerformedBookings = (props: IPerformedBookings) => {
                            
             <td>
                 <button 
-                className="perform-bookings-button"
+                className={classes.performBookingsButton}
                 onClick={onDeleteHandler}><i>Delete</i></button>
             </td>
         </tr>

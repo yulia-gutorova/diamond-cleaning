@@ -1,5 +1,5 @@
-import 'src/components/customerAccount/css/NewBooking.css'
-
+//import 'src/components/customerAccount/css/NewBooking.css'
+import classes from 'src/components/customerAccount/css/NewBooking.module.css'
 import { useState } from 'react';
 import { INewBooking, FormData } from 'src/components/customerAccount/interfaces';
 
@@ -18,10 +18,6 @@ const NewBooking = (props: INewBooking) => {
     //-----------------------------------------------------------------------
     const submitHandler = (event: React.FormEvent) => {
        event.preventDefault();
-        
-/*         console.log('in submitHandler');
-        console.log('formdata in submitHandler')
-        console.log(formData); */
         props.onAddNewBooking(formData); 
         setFormData({
             cleanerName : '',
@@ -34,33 +30,26 @@ const NewBooking = (props: INewBooking) => {
 
     //-----------------------------------------------------------------------
     const changeHandler = (event : React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => { 
-               
-/*         console.log('in changeHandler'); */
         const {name} = event.target;
-
         if (name === 'level')setIsChecked(event.target.value); 
-
-/*         console.log('name');
-        console.log(name) */
         setFormData({...formData, [name]: event.target.value});
-/*         console.log('formdata in changehandler')
-        console.log(formData)  */
     }
 
 
     //-----------------------------------------------------------------------  
     return (
-        <div className="form-wrapper">
-            <div className="form-content">
+        <div className={classes.formWrapper}>
+            <div className={classes.formContent}>
 
-                <form action="" className="form" onSubmit={submitHandler}>
+                <form action="" className={classes.form} onSubmit={submitHandler}>
 
-                    <div className='labels'>
-                        <label className='label' htmlFor="cleaner-name">Select cleaner:</label>
+                    <div className={classes.labels}>
+                        <label className={classes.label} htmlFor="cleaner-name">Select cleaner:</label>
 
-                        <div className='input-tab'>
+                        <div className={classes.inputTab}>
 
                             <select id="cleaner-name" 
+                                    className={classes.cleanerName}
                                     name="cleanerName"
                                     value={formData.cleanerName}
                                     onChange={changeHandler}>
@@ -74,17 +63,17 @@ const NewBooking = (props: INewBooking) => {
                     </div>
 
 
-                    <div className='labels' >
-                        <label className='label'>Select a type of cleaning:</label>
+                    <div className={classes.labels}>
+                        <label className={classes.label}>Select a type of cleaning:</label>
 
-                        <div className='input-tab-radio' >
+                        <div className={classes.inputTabRadio}>
                                 <input  type="radio" 
                                         id="basic" 
                                         name="level" 
                                         value="Basic" 
                                         checked={isChecked === 'Basic'}
                                         onChange={changeHandler}/>
-                                <label className='label-radio' htmlFor="basic">Basic</label>
+                                <label className={classes.labelRadio} htmlFor="basic">Basic</label>
 
                                 <input  type="radio" 
                                         id="top" 
@@ -92,7 +81,7 @@ const NewBooking = (props: INewBooking) => {
                                         value="Top" 
                                         checked={isChecked === 'Top'}
                                         onChange={changeHandler}/>
-                                <label className='label-radio' htmlFor="top">Top</label>
+                                <label className={classes.labelRadio} htmlFor="top">Top</label>
 
                                 <input type="radio" 
                                         id="diamond" 
@@ -100,7 +89,7 @@ const NewBooking = (props: INewBooking) => {
                                         value="Diamond" 
                                         checked={isChecked === 'Diamond'}
                                         onChange={changeHandler}/>
-                                <label className='label-radio' htmlFor="diamond">Diamond</label>
+                                <label className={classes.labelRadio} htmlFor="diamond">Diamond</label>
 
                                 <input  type="radio" 
                                         id="windows" 
@@ -114,14 +103,14 @@ const NewBooking = (props: INewBooking) => {
                     </div>
 
 
-                    <div className='labels'>
-                        <label className='label' htmlFor="date">Select date:</label>
+                    <div className={classes.labels}>
+                        <label className={classes.label} htmlFor="date">Select date:</label>
 
-                        <div className='input-tab'>
+                        <div className={classes.inputTab}>
                              <input  id="date" 
                                     type="date" 
                                     name="date" 
-                                    className="input-field" 
+                                    className={classes.inputField} 
                                     value={formData.date}
                                     onChange={changeHandler}
                                     required /> 
@@ -130,22 +119,12 @@ const NewBooking = (props: INewBooking) => {
 
 
 
-                    <div className='labels'>
-                        <label className='label' htmlFor="time">Select time:</label>
+                    <div className={classes.labels}>
+                        <label className={classes.label} htmlFor="time">Select time:</label>
 
-                        <div className='input-tab'>
-{/*                             <input  id="time" 
-                                    type="time" 
-                                    name="time"
-                                    className="input-field" 
-                                    pattern='[08-19].[00-59]'
-                                    placeholder='--.--' 
-                                    value={formData.time}
-                                    onChange={changeHandler}
-                                    required /> time*/}
-
+                        <div className={classes.inputTab}>
                             <select id="time" 
-                                    className="input-field"
+                                    className={classes.inputField}
                                     name="time"
                                     value={formData.time}
                                     onChange={changeHandler}>
@@ -161,7 +140,7 @@ const NewBooking = (props: INewBooking) => {
                         </div>
                     </div>
                     <div>
-                        <button type='submit' className='form-button'>Submit</button>
+                        <button type='submit' className={classes.formButton}>Submit</button>
                     </div>
 
                 </form>

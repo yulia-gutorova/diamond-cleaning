@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+    font-family: "terfens"
+  }
+  
+  .tableRow li{
+    text-decoration: none;
+    list-style-type: none;
+  }
+  
+  .plannedBookingsButton {
+      background-color: rgb(245, 177, 51);
+      color: black;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 1s;
+      width: 100px;
+      height: 30px;
+      border-radius: 10px;
+    }
+      
+   
+  .plannedBookingsButton:hover{
+      background-color: rgb(243, 125, 8);
+      text-decoration: underline;
+      color:black;
+  }

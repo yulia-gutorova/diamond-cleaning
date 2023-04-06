@@ -1,4 +1,4 @@
-import 'src/components/customerAccount/css/PlannedBookings.css'
+import classes from'src/components/customerAccount/css/PlannedBooking.module.css'
 import { IPlannedBookings } from 'src/components/customerAccount/interfaces';
 
 const PlannedBookings = (props: IPlannedBookings) => {
@@ -11,7 +11,7 @@ const PlannedBookings = (props: IPlannedBookings) => {
     //-----------------------------------------------------------------------
     return(
         <>
-        <tr>
+        <tr className={classes.tableRow}>
             <td><li>{props.date.slice(0, 10)}</li></td> 
             <td><li>{props.time}</li></td> 
             <td><li>{props.cleanerName}</li></td>  
@@ -19,7 +19,7 @@ const PlannedBookings = (props: IPlannedBookings) => {
                            
             <td>
                 <button 
-                className="planned-bookings-button"
+                className={classes.plannedBookingsButton}
                 onClick={onDeleteHandler}><i>Delete</i></button>
             </td>
         </tr>

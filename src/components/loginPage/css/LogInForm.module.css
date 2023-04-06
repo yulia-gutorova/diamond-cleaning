@@ -1,15 +1,16 @@
 *{
     box-sizing: border-box;
-  }
+    font-family: "terfens"
+}
 
-.login-section-wrapper{
+.loginSectionWrapper{
     width: 90%;
     min-height: 800px;
     margin: auto;
 
 }
 
-.login-section-background-image{
+.loginSectionBackgroundImage{
     height: 800px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -17,7 +18,7 @@
     filter: blur(2px); 
 }
 
-.login-form {
+.loginForm {
     background-color: rgb(150, 151, 149); 
     border: none;
     position: absolute;
@@ -29,32 +30,32 @@
     text-align: center;
 }
 
-.login-form-h1{
+.loginFormH1{
     color: rgb(66, 107, 5);
     font-size: 14px;
     margin-bottom: 0;
 }
 
-.login-form h2{
+.loginFormH2{
     color: black;
     padding-top: 30px;
 }
 
 
-.login-section-button {
+.loginSectionButton {
     background-color: rgb(245, 177, 51);
     color: black;
     font-size: 16px;
     border: none;
     cursor: pointer;
     transition: background-color 1s;
-    width: 100px;
+    width: 150px;
     height: 50px;
     border-radius: 10px;
     margin-bottom: 20px;
 }
 
-.login-section-button:hover{
+.loginSectionButton:hover{
     background-color: rgb(243, 125, 8);
     text-decoration: underline;
     color:black;
@@ -65,15 +66,14 @@
     width: 250px;
 }
 
-.login-form p{
+.loginForm p{
     color: red;
     font-weight: bold;
     font-size: 24px;
 }
 
-.logged-in-buttons{
+.loggedInButtons{
+    display: flex;
     margin-top: 20px;
     justify-content: center;
-    display: flex;
-    column-gap: 20px;
 }

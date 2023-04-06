@@ -1,5 +1,5 @@
 export interface IHomePage {
-    onLogOutClickHandler:  () => void;
+    loginButtonTextHandler : (login : boolean) => void;
 }
 
 export interface IWhyChooseUsCard {

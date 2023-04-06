@@ -2,8 +2,9 @@ import classes from 'src/components/homePage/css/ContactUsSection.module.css'
 
 const ContactUsSection = () => {
     
+    //-----------------------------------------------------------------------
     return (
-        <div className={classes.contactSectionWrapper}>
+        <div id='contactSectionWrapper' className={classes.contactSectionWrapper}>
             <div className={classes.contactCard}>
                  <i className="fa-solid fa-phone-volume fa-xl"></i> 
                 <p className={classes.contactTitle}>Call us now!</p>
