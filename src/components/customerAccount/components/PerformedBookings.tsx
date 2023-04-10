@@ -11,7 +11,6 @@ const PerformedBookings = (props: IPerformedBookings) => {
 
     //-----------------------------------------------------------------------
     const onCheckboxHandler = (event : React.ChangeEvent<HTMLInputElement>) => {
-        console.log('Insise on checkbox handler in performed bookings');
         props.onCheckboxHandler(props.id)
     }
 

@@ -1,64 +1,87 @@
-import { useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, createContext, useEffect, useState } from 'react'
 
 import Member from 'src/models/Member';
 
 import LogInForm from 'src/components/logInPage/components/LogInForm'
 
 import { ILogInPage } from 'src/components/logInPage/interfaces';
-import { fetchData } from 'src/components/logInPage/api';
+import { addData, fetchData } from 'src/components/logInPage/api';
 
+interface INameContext {
+  text: string
+  setText: Dispatch<SetStateAction<string>>
+}
+
+export const NameContext = createContext<INameContext>({
+  text: "",
+  setText: () => { }
+});
 
 const LogInPage = (props: ILogInPage) => {
 
   //-------------------------------------------------------------------
-  const [members, setMembers]= useState<Member[]>([]);
+  const [members, setMembers] = useState<Member[]>([]);
   const [isCustomer, setIsCustomer] = useState(false);
-  const [display, setDisplay]  =  useState(true)
+  const [display, setDisplay] = useState(true)
   const [text, setText] = useState('');
   const [login, setLogin] = useState(false);
-     
+  const [newCustomer, setNewCustomer] = useState(true);
+
   //-------------------------------------------------------------------
   useEffect(() => {
     (
-      async function() 
-      {
-      let res : Member[] = await fetchData() as Member[];
-      setMembers(res);
-      } 
-    )() 
-  }, []); 
+      async function () {
+        let res: Member[] = await fetchData() as Member[];
+        setMembers(res);
+      }
+    )()
+  }, []);
 
 
   //-------------------------------------------------------------------
-  const onSubmitHandler = (name :string) => {  
+  const onSubmitHandler = (name: string) => {
     const filtered = members.filter((value) => value.name === name);
 
-    if (filtered.length !== 0)
-    {
+    if (filtered.length !== 0) {
       setText(name);
       setDisplay(false);
-      setIsCustomer(filtered[0].isCustomer);  
-      setLogin(true);    
+      setIsCustomer(filtered[0].isCustomer);
+      setLogin(true);
+      setNewCustomer(true); 
     };
-    if (filtered.length === 0)
-    {
-      setText('Not exists');
+    if (filtered.length === 0) {
+      setText('Would you like to became our new customer?');
       setDisplay(true);
       setLogin(false);
+      setNewCustomer(false);
     };
+  }
+
+  const onAddNewCustomerHandler = async (name: string) => {
+    setText(name);
+    setDisplay(false);
+    setIsCustomer(true);
+    setLogin(true);
+    setNewCustomer(true);
+
+    props.loginButtonTextHandler(login);
+    let res = await addData(name);
   }
 
   //-------------------------------------------------------------------
   props.loginButtonTextHandler(login);
-  
+
   //-------------------------------------------------------------------
   return (
-      <>
-          <LogInForm  onSubmitHandler={onSubmitHandler}
-                      text={text}
-                      display={display}
-                      isCustomer={isCustomer} ></LogInForm>       
-      </> 
+    <>
+      <NameContext.Provider value={{ text, setText }}>
+        <LogInForm onSubmitHandler={onSubmitHandler}
+          onAddNewCustomerHandler={onAddNewCustomerHandler}
+          display={display}
+          newCustomer={newCustomer}
+          isCustomer={isCustomer} ></LogInForm>
+      </NameContext.Provider>
+    </>
   )
 }
 

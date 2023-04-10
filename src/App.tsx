@@ -4,12 +4,12 @@ import React, { useState } from 'react';
 
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 
-import HomePage        from './components/homePage/HomePage';
-import LoginPage       from './components/logInPage/LogInPage';
-import NavigationMenu  from './components/common/components/NavigationMenu';
+import HomePage from './components/homePage/HomePage';
+import LoginPage from './components/logInPage/LogInPage';
+import NavigationMenu from './components/common/components/NavigationMenu';
 import CustomerAccount from './components/customerAccount/CustomersAccount';
-import CleanerAccount  from './components/cleanerAccount/CleanerAccount';
-import Footer          from './components/common/components/Footer';
+import CleanerAccount from './components/cleanerAccount/CleanerAccount';
+import Footer from './components/common/components/Footer';
 
 function App() {
 
@@ -55,29 +55,29 @@ function App() {
     }
 
     waitForElement(selector);
-  }  
+  }
 
   //-----------------------------------------------------------------------
   return (
     <div className="App">
       <BrowserRouter>
-          <NavigationMenu  onScrollToElementClickHandler={onScrollToElementClickHandler}
-                           loginText={loginText}
-                           login={login}
-                           load={load}></NavigationMenu>
-          <Routes>
-            <Route path='/' 
-                   element={<HomePage loginButtonTextHandler={loginButtonTextHandler}/>} />
-            <Route path='/login' 
-                   element={<LoginPage loginButtonTextHandler={loginButtonTextHandler}/>} />
-            <Route path='/login/customer/:name' 
-                   element={<CustomerAccount loginButtonTextHandler={loginButtonTextHandler}/>} />
-            <Route path='/login/cleaner/:name' 
-                   element={<CleanerAccount loginButtonTextHandler={loginButtonTextHandler}/>} />
-            <Route path='*' 
-                   element={<h1>PAGE NOT FOUND</h1>} />
-          </Routes>
-          <Footer onScrollToElementClickHandler={onScrollToElementClickHandler}></Footer>
+        <NavigationMenu onScrollToElementClickHandler={onScrollToElementClickHandler}
+          loginText={loginText}
+          login={login}
+          load={load}></NavigationMenu>
+        <Routes>
+          <Route path='/'
+            element={<HomePage loginButtonTextHandler={loginButtonTextHandler} />} />
+          <Route path='/login'
+            element={<LoginPage loginButtonTextHandler={loginButtonTextHandler} />} />
+          <Route path='/login/customer/:name'
+            element={<CustomerAccount loginButtonTextHandler={loginButtonTextHandler} />} />
+          <Route path='/login/cleaner/:name'
+            element={<CleanerAccount loginButtonTextHandler={loginButtonTextHandler} />} />
+          <Route path='*'
+            element={<h1>PAGE NOT FOUND</h1>} />
+        </Routes>
+        <Footer onScrollToElementClickHandler={onScrollToElementClickHandler}></Footer>
       </BrowserRouter>
     </div>
   );

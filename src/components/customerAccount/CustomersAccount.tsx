@@ -46,11 +46,18 @@ const CustomerAccount = (props: ICustomerPage) => {
 
     //-----------------------------------------------------------------------
     const onCheckboxHandler = (id : string) => {
-        setCheckedBookings
-        (
-          (checkedBookings) => {return [...checkedBookings, id]}       
-        );
-        
+        if (!checkedBookings.includes(id))
+        {
+            setCheckedBookings((checked: any) => {return [...checked, id]});
+        }
+
+        if (checkedBookings.includes(id))
+        {
+            const newChecked = checkedBookings.filter(function (booking_id) {
+                return booking_id !== id;
+            });
+            setCheckedBookings(newChecked);
+        }    
     }
 
     //-----------------------------------------------------------------------

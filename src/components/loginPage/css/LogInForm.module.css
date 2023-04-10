@@ -30,13 +30,13 @@
     text-align: center;
 }
 
-.loginFormH1{
+.loginFormH1 h1{
     color: rgb(66, 107, 5);
     font-size: 14px;
     margin-bottom: 0;
 }
 
-.loginFormH2{
+.loginFormH1 h2{
     color: black;
     padding-top: 30px;
 }
@@ -53,6 +53,7 @@
     height: 50px;
     border-radius: 10px;
     margin-bottom: 20px;
+    margin: 10px 20px 30px 10px;
 }
 
 .loginSectionButton:hover{
@@ -76,4 +77,5 @@
     display: flex;
     margin-top: 20px;
     justify-content: center;
+    column-gap: 20px;
 }

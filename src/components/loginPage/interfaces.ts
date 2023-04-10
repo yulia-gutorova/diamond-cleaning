@@ -1,9 +1,10 @@
 
 export interface ILogInForm {
     onSubmitHandler(name: string): void
-    text       : string
+    onAddNewCustomerHandler : (name: string) => void
     isCustomer : boolean
     display    : boolean
+    newCustomer : boolean
 }
 
 export interface ILogInPage {

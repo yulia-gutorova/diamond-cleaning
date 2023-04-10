@@ -5,7 +5,6 @@ export enum Level{
     Window
 }
 
-
 class Booking
 {
     _id: string;
